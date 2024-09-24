@@ -4,7 +4,7 @@
 @import url(./_colors.css);
 @import url(./_font.css);
 @import url(./_common.css);
-@import url(./_layout.css);
+@import url(./layout.css);
 /* Layout */
 body {
   font-family: "Noto Sans KR", sans-serif;
