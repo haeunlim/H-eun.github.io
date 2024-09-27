@@ -262,7 +262,7 @@ $(function () {
   character3d_canvas.height = 640;
   const character3d_frameCount = 10;
   const character3d_currentFrame = (index) =>
-    `http://pub.hanbom.com/hanbom_7th/@resource/images/3d/character/character_${(
+    `https://haeunlim.github.io/portfolio/assets/img/f000${(
       index + 1
     ).toString()}.png`;
   const character3d_images = [];
