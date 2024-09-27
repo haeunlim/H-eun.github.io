@@ -1,6 +1,6 @@
 :root {
   --vh100: calc(var(--vh, 1vh) * 100);
-
+  --bs-point: var(--blue);
   --wrapper: 96vw;
   --gutter: 1.4vw;
   --leftMargin: 2vw;

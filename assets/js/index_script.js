@@ -184,7 +184,7 @@ $(function () {
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: ".together",
+        trigger: ".skillSect",
         start: "0% 100%",
         end: "0% 100%",
         scrub: 1,
@@ -196,12 +196,31 @@ $(function () {
       0
     );
 });
-
+// skill
 $(function () {
-  $(".con03 .list").simplyScroll({
-    speed: 4,
-    pauseOnHover: false,
-    pauseOnTouch: false,
+  $(".chart").each(function () {
+    let percent = $(this).data("percent");
+    let circle = $(this).find(".outer");
+
+    $(circle).each(function (i, path) {
+      var length = path.getTotalLength();
+      console.log(length);
+      let val = (length * percent) / 100;
+      val = length - val + 20;
+      $(this).animate({ "stroke-dashoffset": val });
+    });
+  });
+
+  const container = document.querySelector(".container");
+  document.body.addEventListener("mousemove", (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    gsap.to(container, {
+      y: y,
+    });
+    gsap.to(".mask", {
+      y: -y,
+    });
   });
 });
 
@@ -278,7 +297,7 @@ $(function () {
     ease: "power2.out",
     duration: 1.5,
     scrollTrigger: {
-      trigger: ".together .gutter-100",
+      trigger: ".together .title-wrap",
       start: "top top",
       onEnter: function () {
         $(".together").addClass("on");
