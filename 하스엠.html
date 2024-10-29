@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- minimum-scale=1 : 최소 크기 설정 (기본값 : 0.25, 범위 : 0~10.0), maximum-scale=1 : 최대 크기 설정(최대 배율 범위 : 0~10.0), user-scalable=no : 사용자 단말의 확대기능 사용 유무 선언(yes/no) -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta
+      name="description"
+      content="하스엠은 우주/항공, 반도체, 해양플랜트, 석유화학 등 첨단 산업분야에 필요한 고품질의 체결 부품을 생산, 고객사의 비즈니스 혁신을 가능하게 합니다."
+    />
+    <meta
+      name="keyword"
+      content="하스엠, 체결부품, 볼트, 너트, 니켈, 하스텔로이, 합금, nickel, alloy, fastener, hasm"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://hasmkorea.co.kr/web/kor/" />
+
+    <meta
+      property="og:image"
+      content="http://hasmkorea.co.kr/web/kor/asset/images/meta_img_800x420.png"
+    />
+
+    <meta property="og:site_name" content="홈 | 하스엠" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="420" />
+    <title>홈 | 하스엠</title>
+    <meta property="og:title" content="홈 | 하스엠" />
+    <meta
+      property="og:description"
+      content="하스엠은 우주/항공, 반도체, 해양플랜트, 석유화학 등 첨단 산업분야에 필요한 고품질의 체결 부품을 생산, 고객사의 비즈니스 혁신을 가능하게 합니다."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="www.hasmkorea.com/web/@resource/css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="www.hasmkorea.com/web/@resource/css/common.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="www.hasmkorea.com/web/@resource/css/main.css?ver=1.2"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="www.hasmkorea.com/web/@resource/css/style.css?ver=1.3"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css"
+    />
+
+    <link
+      rel="icon"
+      href="www.hasmkorea.com/web/kor/asset/images/favicon.svg"
+      type="image/svg+xml"
+    />
+
+    <script src="www.hasmkorea.com/web/@resource/js/jquery-1.12.4.min.js"></script>
+    <script src="www.hasmkorea.com/web/@resource/js/gsap.min.js"></script>
+    <script src="www.hasmkorea.com/web/@resource/js/ScrollToPlugin.min.js"></script>
+    <script src="www.hasmkorea.com/web/@resource/js/ScrollTrigger.min.js"></script>
+    <script src="www.hasmkorea.com/web/@resource/js/smooth-scrollbar.js"></script>
+    <script src="www.hasmkorea.com/web/@resource/js/common.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+    ></script>
+
+    <script>
+      //익스로 열면 엣지로 전환
+      if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
+        // IE!!
+        //window.location = "microsoft-edge:" + window.location.href;
+        window.location =
+          "microsoft-edge:http://hasmkorea.co.kr/web/kor/update.html";
+
+        setTimeout(function () {
+          window.location = "https://go.microsoft.com/fwlink/?linkid=2135547";
+          //window.location = 'http://hasmkorea.co.kr/web/kor/update.html';
+        }, 10);
+      }
+
+      var num = "";
+      var path = location.pathname;
+      var afterPath = path.split("/");
+      var lastValue = afterPath[afterPath.length - 1];
+    </script>
+  </head>
+  <body>
+    <div id="wrapper" class="main">
+      <div id="loading" style="display: none">
+        <div class="loadingBox">
+          <img
+            src="www.hasmkorea.com/web/kor/asset/images/loading-dark.gif"
+            alt="loading"
+          />
+        </div>
+      </div>
+      <!-- header 에 header_w 클래스가 붙으면 흰색 메뉴 안붙으면 검정색 메뉴 -->
+      <div id="header">
+        <div class="header_wrap">
+          <div class="logo_wrap">
+            <h1><a href="www.hasmkorea.com/web/kor/index.html"></a></h1>
+          </div>
+          <div class="gnb_wrap">
+            <nav class="menu_wrap">
+              <ul class="menu_list">
+                <li>
+                  <a href="javascript:void(0);" class="menu_on f_n">HASM</a>
+                  <ul class="sub_list">
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/hasm/about.html"
+                        class="f_p company"
+                        >회사소개</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="menu_on f_n"
+                    >TECHNOLOGY</a
+                  >
+                  <ul class="sub_list">
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/technology/ProductionFacility.html"
+                        class="on_w f_p tech01"
+                        >생산 설비</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/technology/Certifications.html"
+                        class="f_p tech02"
+                        >인증</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/technology/IndustrialExhibition.html"
+                        class="f_p tech03"
+                        >산업 전시회</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="menu_on f_n">PRODUCTS</a>
+                  <ul class="sub_list">
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/products/Material.html"
+                        class="f_p product01"
+                        >특수 합금</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/products/list.html"
+                        class="f_p product02"
+                        >생산 제품</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/products/industry_1.html?once=false"
+                        class="f_p product03"
+                        >산업 분야</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="menu_on f_n">SUPPORT</a>
+                  <ul class="sub_list">
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/support/DataDownload.html"
+                        class="f_p data_dw"
+                        >자료실</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="www.hasmkorea.com/web/kor/support/Inquiry.html"
+                        class="f_p online_qna"
+                        >온라인 문의</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            <div class="online_wrap f_p">
+              <h2>
+                <a
+                  href="www.hasmkorea.com/web/kor/support/Inquiry.html"
+                  class="online f_p"
+                  >온라인 문의</a
+                >
+              </h2>
+              <div class="lang">
+                <a href="javascript:void(0);" class="kr f_n">KR</a>
+                <a href="www.hasmkorea.com/web/eng/index.html" class="eng f_n"
+                  >EN<span></span
+                ></a>
+                <!-- <a href="https://hasmnorthamerica.com/" target="_blank" class="eng f_n">EN<span></span></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        $(document).ready(function () {
+          //header hover
+          $(".menu_on").on("mouseover", function () {
+            $(".header_wrap").addClass("on");
+            $(".sub_list").addClass("on");
+          });
+          $(".header_wrap").on("mouseleave", function () {
+            $(".header_wrap").removeClass("on");
+            $(".sub_list").removeClass("on");
+          });
+          //press
+          $(".on_w").on("click", function () {
+            $(this).addClass("on");
+          });
+        });
+      </script>
+      <script>
+        $("#loading").show();
+      </script>
+      <div id="wrap">
+        <div class="container">
+          <div id="panner">
+            <div id="sec01" class="sec01 section">
+              <div class="sec01_1">
+                <div class="videoBox">
+                  <video muted="muted" autoplay="autoplay" loop playsinline>
+                    <source
+                      src="./asset/images/main/video/KV-BG.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+                <div class="cont_wrap">
+                  <div class="title_box">
+                    <p class="tit_1"><span></span><span>NICKEL</span></p>
+                    <p class="tit_2"><span>ALLOY FASTENER</span></p>
+                    <p class="tit_3"><span>MANUFACTURER</span></p>
+                  </div>
+                  <div class="scroll_box">
+                    <p>SCROLL TO DISCOVER</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="sec02" class="sec02 section">
+              <div class="sec01_2">
+                <div class="cont_wrap">
+                  <div class="cont_box img_box">
+                    <div class="motion_img">
+                      <img
+                        src="./asset/images/main/sec02_img_4.png"
+                        alt="Rectangle 78"
+                        class="img_4"
+                      />
+                      <img
+                        src="./asset/images/main/sec02_img_2.png"
+                        alt="Rectangle 78"
+                        class="img_2"
+                      />
+                    </div>
+                    <div class="motion_img">
+                      <img
+                        src="./asset/images/main/sec02_img_3.png"
+                        alt="Rectangle 78"
+                        class="img_3"
+                      />
+                      <img
+                        src="./asset/images/main/sec02_img_1.png"
+                        alt="Rectangle 78"
+                        class="img_1"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="coverBox">
+                    <div class="left_box">
+                      <span class="cover_bg_t cover_bg"></span>
+                      <span class="cover_bg_r cover_bg"></span>
+                      <span class="cover_bg_b cover_bg"></span>
+                      <span class="cover_bg_l cover_bg"></span>
+                    </div>
+                    <div class="right_box">
+                      <span class="cover_bg_t cover_bg"></span>
+                      <span class="cover_bg_r cover_bg"></span>
+                      <span class="cover_bg_b cover_bg"></span>
+                      <span class="cover_bg_l cover_bg"></span>
+                    </div>
+                  </div>
+
+                  <div class="cont_box text_box">
+                    <div class="left_box">
+                      <div class="text_1 text">
+                        <p class="txt_1 f_n">Who We Are</p>
+                        <p class="txt_2 f_p">
+                          HASM은 항공/우주, 반도체, 해양플랜트, 석유화학 등<br />
+                          첨단 산업분야에 필요한 고품질의 체결 부품 생산<br />
+                          <span>고객사의 비즈니스 혁신을 가능하게 합니다.</span>
+                        </p>
+                      </div>
+                      <div class="text_3 text">
+                        <p class="txt_1 f_n">Quick<br />Response</p>
+                        <p class="txt_2 f_p">
+                          문의 접수 즉시 전문가의 검토 후<br />
+                          합리적인 견적 신속제공
+                        </p>
+                      </div>
+                    </div>
+                    <div class="right_box">
+                      <div class="text_2 text">
+                        <p class="txt_1 f_n">
+                          Industry-leading<br />
+                          Quality
+                        </p>
+                        <p class="txt_2 f_p">
+                          국내최초 냉간압연 하스텔로이 볼트 개발<br />
+                          특수 소재 볼트, 너트 등 고품질 제품 생산
+                        </p>
+                      </div>
+                      <div class="text_4 text">
+                        <p class="txt_1 f_n">Fast<br />Delivery</p>
+                        <p class="txt_2 f_p">
+                          200 억 상당의 재고 보유, 빠른 납기
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div id="pd_motion" class="pd_box">
+                        <div class="canvas_container">
+                            <div class="canvas_1">
+                                <img class="frames" src="./asset/images/main/intro_sequence/Intro-001.png">
+                            </div>
+                        </div>
+                    </div> -->
+            <div id="pd_motion" class="pd_box">
+              <div class="canvas_container">
+                <div class="canvas_1">
+                  <canvas id="hero-lightpass_1"></canvas>
+                </div>
+                <div class="canvas_2">
+                  <canvas id="hero-lightpass_2"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="sec03" class="sec03 h_w">
+            <div class="sec03_1">
+              <div class="cont_wrap">
+                <div class="title_box">
+                  <h1>Products</h1>
+                  <div class="sub_txt">
+                    <p class="txt_1 f_p">
+                      니켈합금 및 특수강 소재의 볼트, 너트등 다양한 체결부품
+                      생산
+                    </p>
+                    <p class="txt_2 f_p">
+                      Hastelloy C-276, Hastelloy C-22, Inconel 600, Inconel 625,
+                      Inconel 718, <br />
+                      Duplex 2205, Super Duplex 2507, Monel 400, Monel K-500,
+                      Titanium Grade 2, <br />
+                      Titanium Grade 5, Titanium Grade 7, AL-6XN, 25-6Mo, A-286,
+                      SS 310S, SS 321
+                    </p>
+                  </div>
+                </div>
+                <div class="contents_box">
+                  <div class="bg_text">
+                    <p>HASM</p>
+                    <a href="javascript:void(0);"></a>
+                  </div>
+                  <div class="bolt_box">
+                    <div class="bolt_cont bolt_1">
+                      <img
+                        src="./asset/images/main/sec03_bolt_1.png"
+                        alt="Endmill Pin"
+                      />
+                      <div>
+                        <a href="javascript:void(0);"
+                          ><span class="f_p">엔드밀핀</span></a
+                        >
+                      </div>
+                    </div>
+                    <div class="bolt_cont bolt_2">
+                      <img
+                        src="./asset/images/main/sec03_bolt_2.png"
+                        alt="Spherical Bolt"
+                      />
+                    </div>
+                    <div class="bolt_cont bolt_3">
+                      <div class="bolt_2">
+                        <a href="javascript:void(0);"
+                          ><span class="f_p">구면 볼트</span></a
+                        >
+                      </div>
+                      <img
+                        src="./asset/images/main/sec03_bolt_3.png"
+                        alt="Inconel 718"
+                      />
+                      <div>
+                        <a href="javascript:void(0);"
+                          ><span class="f_p">별렌치 볼트</span></a
+                        >
+                      </div>
+                    </div>
+                    <div class="bolt_cont bolt_4">
+                      <img
+                        src="./asset/images/main/sec03_bolt_4.png"
+                        alt="Frange Bolt"
+                      />
+                      <div>
+                        <a href="javascript:void(0);"
+                          ><span class="f_p">플렌지 볼트</span></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="more_box">
+                  <a
+                    href="www.hasmkorea.com/web/kor/products/list.html"
+                    class="hover_s_1"
+                    >More Products<span></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="sec04" class="sec04">
+            <div class="sec04_1">
+              <h1>Corporate Video</h1>
+              <div class="cont_wrap">
+                <div class="video_box">
+                  <div>
+                    <video
+                      muted="muted"
+                      autoplay="autoplay"
+                      loop
+                      playsinline
+                      preload="metadata"
+                    >
+                      <source
+                        src="./asset/images/main/video/introduce-video.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                  </div>
+                </div>
+                <div class="text_box">
+                  <div class="more_box">
+                    <!-- <a href="javascript:void(0);" class="hover_s_3 btn_1"><span></span>View Short ver</a> -->
+                    <a href="javascript:void(0);" class="hover_s_3 btn_2"
+                      ><span></span>View Full ver</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pinWrap">
+            <div class="sec04_2">
+              <div class="cont_wrap">
+                <div class="cont_box box_1">
+                  <p class="f_p">냉간 성형 사업부</p>
+                  <img
+                    src="./asset/images/main/sec05_img_1.png"
+                    alt="냉간 성형 사업부"
+                  />
+                </div>
+                <div class="cont_box box_2">
+                  <p class="f_p">열간 성형 사업부</p>
+                  <img
+                    src="./asset/images/main/sec05_img_2.png"
+                    alt="열간 성형 부문"
+                  />
+                </div>
+                <div class="cont_box box_3">
+                  <p class="f_p">정밀가공사업부</p>
+                  <img
+                    src="./asset/images/main/sec05_img_3.png"
+                    alt="정밀가공사업부"
+                  />
+                </div>
+                <div class="cont_box box_4">
+                  <h1>Production Facilities</h1>
+                  <div>
+                    <p class="f_p">
+                      지속적 기술 개발과 생산 설비 확대로 고품질 제품 생산
+                    </p>
+                    <a
+                      href="www.hasmkorea.com/web/kor/technology/ProductionFacility.html"
+                      class="hover_s_2"
+                      >Learn More<span></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="sec06" class="sec06 section">
+              <div class="sec06_1">
+                <div class="cont_wrap">
+                  <div class="top_txt">
+                    <p class="title_txt f_p">
+                      최고의 품질과<br />
+                      신뢰를 바탕으로<br />
+                      고객만족 실현
+                    </p>
+                    <p class="sub_txt f_p">
+                      하스엠은 세계적인 흐름에 맞춰<br />
+                      현재 모습에 안주하지 않고<br />
+                      지속적인 노력과 다양한 변화를 거듭하며<br />
+                      고객사와 함께하고 있습니다.
+                    </p>
+                  </div>
+                  <div class="bottom_txt">
+                    <ul>
+                      <li class="logo_1">
+                        <img
+                          src="./asset/images/main/client_logo_1.png"
+                          alt="HYUNDAI"
+                        />
+                      </li>
+                      <li class="logo_2">
+                        <img
+                          src="./asset/images/main/client_logo_2.png"
+                          alt="LG"
+                        />
+                      </li>
+                      <li class="logo_3">
+                        <img
+                          src="./asset/images/main/client_logo_3.png"
+                          alt="HANWHA"
+                        />
+                      </li>
+                      <li class="logo_4">
+                        <img
+                          src="./asset/images/main/client_logo_7.png"
+                          alt="K-water"
+                        />
+                      </li>
+                      <li class="logo_5">
+                        <img
+                          src="./asset/images/main/client_logo_4.png"
+                          alt="GE"
+                        />
+                      </li>
+                      <li class="logo_6">
+                        <img
+                          src="./asset/images/main/client_logo_5.png"
+                          alt="DOOSAN"
+                        />
+                      </li>
+                      <li class="logo_7">
+                        <img
+                          src="./asset/images/main/client_logo_6.png"
+                          alt="PETRO-Q"
+                        />
+                      </li>
+                      <li class="logo_8">
+                        <img
+                          src="./asset/images/main/client_logo_8.png"
+                          alt="PETRO-Q"
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="sec07" class="sec07 section h_w">
+              <div class="sec07_1">
+                <div class="cont_wrap">
+                  <div class="cont_box box_1">
+                    <h1>Request <br />a Quote</h1>
+                  </div>
+                  <div class="cont_box box_2">
+                    <div class="video_box video_1">
+                      <video
+                        poster="./asset/images/main/video/video_1.png"
+                        muted="muted"
+                        autoplay="autoplay"
+                        loop
+                        playsinline
+                      >
+                        <source
+                          src="./asset/images/main/video/PC-video.1.mp4"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </div>
+                    <div class="video_box video_2">
+                      <video
+                        poster="./asset/images/main/video/video_2.png"
+                        muted="muted"
+                        autoplay="autoplay"
+                        loop
+                        playsinline
+                      >
+                        <source
+                          src="./asset/images/main/video/PC-video.2.mp4"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </div>
+                  </div>
+                  <div class="cont_box box_3">
+                    <h1 class="f_p">끝없는 도전, 세계로</h1>
+                    <p class="f_p">
+                      새로운 비즈니스 혁신을 하스엠과<br />
+                      함께 하고 싶으신가요?
+                    </p>
+                    <a
+                      href="www.hasmkorea.com/web/kor/support/Inquiry.html"
+                      class="hover_s_1"
+                      >문의하기<span></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="footer">
+          <div class="footer_wrap">
+            <div class="txt_box">
+              <div class="box box01">
+                <span class="title f_p">Contact us</span>
+                <h2 class="f_p">
+                  하스엠의 본사 및 국내외<br />사업장 정보를 확인하세요.
+                </h2>
+              </div>
+              <div class="box_wrap">
+                <div class="box box02">
+                  <span class="title f_p">Head Office</span>
+                  <h2 class="f_p">
+                    본사(대한민국)<a
+                      href="https://goo.gl/maps/4JGBimMA6nMRogPNA"
+                      target="_blank"
+                      class="arrow_ic"
+                    ></a>
+                  </h2>
+                  <ul class="company_info">
+                    <li class="f_p">경기도 안산시 단원구 엠티브이4로 51</li>
+                    <li class="f_p">TEL : +82 (31) 319-5960</li>
+                    <!-- <li class="f_p">FAX : +82 (031) 319-5061</li> -->
+                    <li class="f_p">
+                      <a href="mailto:hasm@hasmkorea.co.kr"
+                        >E-MAIL : hasm@hasmkorea.co.kr</a
+                      >
+                    </li>
+                    <li class="f_p">URL : www.hasmkorea.co.kr</li>
+                  </ul>
+                </div>
+                <div class="box box03">
+                  <span class="title f_p">Branch</span>
+                  <h2 class="f_p">
+                    파주 지사(대한민국)<a
+                      href="https://goo.gl/maps/pgGg53zPvp8x2BXh9"
+                      target="_blank"
+                      class="arrow_ic"
+                    ></a>
+                  </h2>
+                  <ul class="company_info">
+                    <li class="f_p">경기도 파주시 금월로 113</li>
+                    <li class="f_p">TEL : +82 (31) 946-3590</li>
+                    <!-- <li class="f_p">FAX : +82 (031) 946-3592</li> -->
+                    <li class="f_p">
+                      <a href="mailto:hasm5960@hasmkorea.co.kr"
+                        >E-MAIL : hasm5960@hasmkorea.co.kr</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="box box04">
+                  <span class="title f_p">International Sales Office</span>
+                  <h2 class="f_p">
+                    글로벌(캐나다)<a
+                      href="https://goo.gl/maps/qDVsfyA25nZyNNpVA"
+                      target="_blank"
+                      class="arrow_ic"
+                    ></a>
+                  </h2>
+                  <ul class="company_info">
+                    <li class="f_p">
+                      4789 Yonge Street, Suite 911<br />
+                      Toronto, Ontario M2N 0G3<br />
+                      Canada
+                    </li>
+                    <li class="f_p">TEL : +1 (416) 221-8181</li>
+                    <!-- <li class="f_p">FAX : +1 (416) 640-4789</li> -->
+                    <li class="f_p">
+                      <a href="mailto:sales@hasmnorthamerica.com"
+                        >E-MAIL : sales@hasmnorthamerica.com</a
+                      >
+                    </li>
+                    <li class="f_p">
+                      <a href="https://hasmnorthamerica.com/" target="_blank"
+                        >URL : www.hasmnorthamerica.com</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="txt_box_ft">
+              <div class="wrap">
+                <p class="copy">COPYRIGHT ⓒ HASM KOREA. ALL RIGHT RESERVED.</p>
+                <ul class="site_info">
+                  <li>
+                    <a
+                      href="www.hasmkorea.com/web/kor/privacy.html"
+                      class="f_p ft"
+                      >개인정보 취급방침</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="www.hasmkorea.com/web/kor/agreement.html"
+                      class="f_p ft"
+                      >사이트 이용약관</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="www.hasmkorea.com/web/kor/support/Inquiry.html"
+                      class="f_p ft"
+                      >온라인 문의</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ft_btn">
+        <a
+          href="www.hasmkorea.com/web/kor/support/Inquiry.html"
+          class="note"
+        ></a>
+        <a href="javascript:void(0);" class="top_bt"></a>
+      </div>
+
+      <!-- 팝업 -->
+      <!-- <div id="popupLayer" style="display: none;">
+			<div class="dim"></div>
+			<div id="pop01" class="pop_box">
+                <a href="javascript:void(0);" class="pop_closed" onclick="pop_close();"><span></span><span></span></a>
+				<div class="pop_cont">
+                    <div class="cont_box">
+                        <img src="./asset/images/popup/main_pop_img_1.png" alt="리뉴얼 안내 팝업">
+                    </div>
+                    <div class="today_box">
+                        <input type="checkbox" name="chkbox" id="todaycloseyn">
+	                    <label for="todaycloseyn" class="f_p">오늘 하루 이 창을 열지 않음</label>
+                    </div>
+				</div>
+			</div>
+		</div> -->
+
+      <div id="videoPop" class="videoPop">
+        <div class="dim"></div>
+        <div class="video_layer">
+          <!-- <video muted loop playsinline><source src="./asset/images/main/video/kor_na_20220502.mp4" type="video/mp4"></video> -->
+          <!-- <a href="javascript:void(0)" class="play_btn"></a> -->
+          <a href="javascript:void(0)" class="video_close_btn"
+            ><span></span><span></span
+          ></a>
+          <video id="video_pop" loop controls preload="none">
+            <source
+              src="./asset/images/main/video/kor_na_20220914.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
+    </div>
+    <script>
+      var checkBox = $("#todaycloseyn").is(":checked");
+
+      function setCookie(name, value, expiredays) {
+        var todayDate = new Date();
+        todayDate = new Date(
+          parseInt(todayDate.getTime() / 86400000) * 86400000 + 54000000
+        );
+        if (todayDate > new Date()) {
+          expiredays = expiredays - 1;
+        }
+        todayDate.setDate(todayDate.getDate() + expiredays);
+        document.cookie =
+          name +
+          "=" +
+          escape(value) +
+          "; path=/; expires=" +
+          todayDate.toGMTString() +
+          ";";
+      }
+
+      function todaycloseWin() {
+        setCookie("ncookie", "done", 1); // 저장될 쿠키명 , 쿠키 value값 , 기간( ex. 1은 하루, 7은 일주일)
+        setTimeout(function () {
+          document.getElementById("popupLayer").style.display = "none"; // 팝업창 아이디
+        }, 100);
+      }
+
+      function pop_close() {
+        checkBox = $("#todaycloseyn").is(":checked");
+
+        if (!checkBox) {
+          $("#popupLayer").fadeOut(500);
+        } else {
+          todaycloseWin();
+        }
+      }
+
+      $(window).on("load", function () {
+        $(".lang .kr").addClass("on");
+        $("#loading").delay(1000).fadeOut(500);
+      });
+
+      $(document).ready(function () {
+        $(".btn_2").on("click", function () {
+          $("#videoPop").fadeIn(500);
+          $(".video_layer video").get(0).play();
+        });
+        // $('.play_btn').on('click',function(){
+        //     var video_play = $(this).siblings('video').attr('id');
+        //     $('.video_layer video').get(0).currentTime = 0;
+        //     $('.video_layer video').get(0).play();
+        //     $('.play_btn').fadeOut(500);
+
+        // })
+        $(".video_close_btn").on("click", function () {
+          $("#videoPop").fadeOut(500);
+          $(".video_layer video").get(0).pause();
+          $(".video_layer video").get(0).currentTime = 0;
+          //$('.play_btn').fadeIn(500);
+        });
+
+        //cookiedata = document.cookie;
+        // if(cookiedata.indexOf('ncookie=done')<0){
+        //     document.getElementById('popupLayer').style.display = 'block'; // 팝업창 아이디
+        // }else{
+        //     document.getElementById('popupLayer').style.display = 'none'; // 팝업창 아이디
+        // }
+
+        var sec04_video_w;
+        var sec04_video_h;
+        var sec06_x;
+        var resultVal;
+        var paddingTop;
+        var marginBottom = $(".sec04_2 .box_1").css("margin-bottom");
+        var win_h = $(window).innerHeight();
+
+        wResize_fn();
+        function wResize_fn() {
+          win_w = $(window).outerWidth();
+
+          // if(win_w < 1920){
+          //     sec04_video_w = '39.27vw';
+          //     sec04_video_h = '23.44vw';
+          //     sec06_x = '-31.25vw';
+          //     paddingTop = '4.17vw';
+          //     resultVal = ($('#sec04').outerHeight()/2) - (sec04_video_h.replace('vw','')/2) + (paddingTop.replace('vw','')*2);
+
+          //     resultVal = (resultVal/720*100);
+          // }else{
+          sec04_video_w = "754px";
+          sec04_video_h = "450px";
+          sec06_x = "-1500px";
+          paddingTop = "80px";
+          //resultVal = ($('#sec04').outerHeight()/2) - (sec04_video_h.replace('px','')/2) + (paddingTop.replace('px','')*2);
+          paddingTop = win_h / 2 - sec04_video_h.replace("px", "") / 2;
+          resultVal =
+            $("#sec04").outerHeight() -
+            sec04_video_h.replace("px", "") -
+            paddingTop -
+            marginBottom.replace("px", "");
+          //}
+
+          //console.log(win_w);
+          //console.log(resultVal);
+        }
+
+        // KV 텍스트 모션
+        setTimeout(function () {
+          title_fn();
+        }, 1000);
+        function title_fn() {
+          var letter_1 = gsap.utils.toArray(".sec01_1 .title_box p span");
+          var t1 = gsap.timeline({
+            ease: "none",
+          });
+          $.each(letter_1, function (index, item) {
+            t1.to(item, 1, { ease: "none", opacity: 1 }, index * 0.3);
+            t1.to(item, { ease: "none", y: 0 }, index * 0.3);
+          });
+        }
+
+        const canvas_1 = document.getElementById("hero-lightpass_1");
+        const context_1 = canvas_1.getContext("2d");
+
+        const canvas_2 = document.getElementById("hero-lightpass_2");
+        const context_2 = canvas_2.getContext("2d");
+
+        canvas_1.width = 1920;
+        canvas_1.height = 1080;
+        canvas_2.width = 1920;
+        canvas_2.height = 1080;
+
+        const frameCount_1 = 120;
+        const currentFrame_1 = (index) =>
+          `./asset/images/main/intro-sequence-press/Intro-${(index + 1)
+            .toString()
+            .padStart(3, "0")}.png`;
+        const frameCount_2 = 121;
+        const currentFrame_2 = (index) =>
+          `./asset/images/main/intro-sequence-press/Intro-${(index + 120)
+            .toString()
+            .padStart(3, "0")}.png`;
+
+        const images_1 = [];
+        const airpods_1 = {
+          frame: 0,
+        };
+        const images_2 = [];
+        const airpods_2 = {
+          frame: 0,
+        };
+
+        for (let i = 0; i < frameCount_1; i++) {
+          const img_1 = new Image();
+          img_1.src = currentFrame_1(i);
+          images_1.push(img_1);
+        }
+
+        for (let i = 0; i < frameCount_2; i++) {
+          const img_2 = new Image();
+          img_2.src = currentFrame_2(i);
+          images_2.push(img_2);
+        }
+
+        images_1[0].onload = render_1;
+        images_2[0].onload = render_2;
+
+        function render_1() {
+          context_1.clearRect(0, 0, canvas_1.width, canvas_1.height);
+          context_1.drawImage(images_1[airpods_1.frame], 0, 0);
+        }
+
+        function render_2() {
+          context_2.clearRect(0, 0, canvas_2.width, canvas_2.height);
+          context_2.drawImage(images_2[airpods_2.frame], 0, 0);
+        }
+
+        const pd_motion_1 = gsap.timeline();
+        pd_motion_1
+          .fromTo(
+            ".canvas_1",
+            { opacity: 0, duration: 0 },
+            { opacity: 1, duration: 0.1 },
+            0
+          )
+          .to(
+            airpods_1,
+            {
+              frame: frameCount_1 - 1,
+              snap: "frame",
+              duration: 1,
+              onUpdate: render_1,
+            },
+            0
+          )
+          .to(".canvas_1", { opacity: 0, duration: 0.1 }, 1)
+          .to(".canvas_2", { opacity: 1, duration: 0.1 }, 0.9);
+
+        const pd_motion_2 = gsap.timeline();
+        pd_motion_2
+          .to(
+            airpods_2,
+            {
+              frame: frameCount_2 - 1,
+              snap: "frame",
+              duration: 1,
+              onUpdate: render_2,
+            },
+            0
+          )
+          .to(".canvas_2", { opacity: 0, duration: 0.1 }, 0.7);
+
+        ScrollTrigger.create({
+          trigger: "#panner",
+          start: "top 0%",
+          end: "+=500",
+          pin: true,
+          pinSpacing: false,
+          //markers: true,
+          animation: pd_motion_1,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        });
+
+        ScrollTrigger.create({
+          trigger: "#pd_motion",
+          start: "center 20%",
+          end: "+=" + $("#sec02").offset().top,
+          pin: true,
+          pinSpacing: false,
+          animation: pd_motion_2,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        });
+
+        /* sec02 이미지 변경 */
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: "#panner",
+              start: "+=" + $("#sec02").offset().top,
+              // end: '+='+($('#sec02').outerHeight()),
+              end: "+=5000",
+              scrub: 0.5,
+              pin: true,
+            },
+          })
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_t",
+            { width: "100%", height: "0%" },
+            { width: "100%", height: "0%", ease: "none", duration: 0.3 },
+            0.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_b",
+            { width: "100%", height: "0%" },
+            { width: "100%", height: "0%", ease: "none", duration: 0.3 },
+            0.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_r",
+            { width: "50%", height: "100%" },
+            { width: "0%", ease: "none", duration: 0.3 },
+            0.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_l",
+            { width: "50%", height: "100%" },
+            { width: "0%", ease: "none", duration: 0.3 },
+            0.5
+          )
+
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_t",
+            { width: "100%", height: "0%" },
+            { height: "50%", ease: "none", duration: 0.3 },
+            0.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_b",
+            { width: "100%", height: "0%" },
+            { height: "50%", ease: "none", duration: 0.3 },
+            0.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_r",
+            { width: "0%", height: "100%" },
+            { width: "50%", ease: "none", duration: 0.3 },
+            0.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_l",
+            { width: "0%", height: "100%" },
+            { width: "50%", ease: "none", duration: 0.3 },
+            0.5
+          )
+
+          .fromTo(
+            ".cont_box.text_box .text_1",
+            { opacity: 1, ease: "none", duration: 0.1 },
+            { opacity: 0, ease: "none", duration: 0.1 },
+            0.5
+          )
+          .fromTo(
+            ".cont_box.text_box .text_2",
+            { opacity: 0, ease: "none", duration: 0.1 },
+            { opacity: 1, ease: "none", duration: 0.1 },
+            0.8
+          )
+
+          .to(
+            ".motion_img .img_1",
+            { opacity: "0", ease: "none", duration: 0 },
+            1
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_t",
+            { width: "100%", height: "50%" },
+            { height: "0%", ease: "none" },
+            1.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_b",
+            { width: "100%", height: "50%" },
+            { height: "0%", ease: "none" },
+            1.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_r",
+            { width: "0%", height: "100%" },
+            { width: "0%", height: "100%", ease: "none" },
+            1.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_l",
+            { width: "0%", height: "100%" },
+            { width: "0%", height: "100%", ease: "none" },
+            1.5
+          )
+
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_t",
+            { width: "100%", height: "0%" },
+            { height: "50%", ease: "none", duration: 0.3 },
+            1.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_b",
+            { width: "100%", height: "0%" },
+            { height: "50%", ease: "none", duration: 0.3 },
+            1.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_r",
+            { width: "0%", height: "100%" },
+            { width: "50%", ease: "none", duration: 0.3 },
+            1.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_l",
+            { width: "0%", height: "100%" },
+            { width: "50%", ease: "none", duration: 0.3 },
+            1.5
+          )
+
+          .fromTo(
+            ".cont_box.text_box .text_2",
+            { opacity: 1, ease: "none", duration: 0.1 },
+            { opacity: 0, ease: "none", duration: 0.1 },
+            1.5
+          )
+          .fromTo(
+            ".cont_box.text_box .text_3",
+            { opacity: 0, ease: "none", duration: 0.1 },
+            { opacity: 1, ease: "none", duration: 0.1 },
+            1.8
+          )
+
+          .to(
+            ".motion_img .img_2",
+            { opacity: "0", ease: "none", duration: 0 },
+            2
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_t",
+            { width: "100%", height: "0%" },
+            { height: "50%", ease: "none" },
+            2.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_b",
+            { width: "100%", height: "0%" },
+            { height: "50%", ease: "none" },
+            2.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_r",
+            { width: "0%", height: "100%" },
+            { width: "50%", height: "100%", ease: "none" },
+            2.5
+          )
+          .fromTo(
+            ".coverBox .right_box .cover_bg.cover_bg_l",
+            { width: "0%", height: "100%" },
+            { width: "50%", height: "100%", ease: "none" },
+            2.5
+          )
+
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_t",
+            { width: "100%", height: "0%" },
+            { height: "0%", ease: "none", duration: 0.3 },
+            2.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_b",
+            { width: "100%", height: "0%" },
+            { height: "0%", ease: "none", duration: 0.3 },
+            2.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_r",
+            { width: "50%", height: "100%" },
+            { width: "0%", ease: "none", duration: 0.3 },
+            2.5
+          )
+          .fromTo(
+            ".coverBox .left_box .cover_bg.cover_bg_l",
+            { width: "50%", height: "100%" },
+            { width: "0%", ease: "none", duration: 0.3 },
+            2.5
+          )
+
+          .fromTo(
+            ".cont_box.text_box .text_3",
+            { opacity: 1, ease: "none", duration: 0.1 },
+            { opacity: 0, ease: "none", duration: 0.1 },
+            2.5
+          )
+          .fromTo(
+            ".cont_box.text_box .text_4",
+            { opacity: 0, ease: "none", duration: 0.1 },
+            { opacity: 1, ease: "none", duration: 0.1 },
+            2.8
+          );
+
+        // sec03 볼트 움직임 모션
+        var bolt = gsap.utils.toArray(".bolt_cont");
+        gsap.to(bolt, {
+          scrollTrigger: {
+            trigger: "#sec03",
+            start: "top 0%",
+            scrub: 1,
+          },
+          yPercent: 50,
+          ease: "none",
+        });
+
+        // sec04 고정 이미지 작아지기
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: "#sec04",
+              start: "top 0%",
+              //end: '+=2000',
+              scrub: 1,
+              pin: true,
+            },
+            ease: "none",
+          })
+          // .to('#sec04 .more_box .btn_1', {display: 'none', ease: 'none', duration: 1}, 0)
+          // .to('#sec04 .more_box .btn_2', {display: 'flex', ease: 'none', duration: 1}, 0)
+          .to(
+            "#sec04 .sec04_1 > h1",
+            { opacity: 0, ease: "none", duration: 1 },
+            2
+          )
+          .to(
+            "#sec04 .video_box > div video",
+            { scale: 1, ease: "none", duration: 1 },
+            2
+          )
+          //.to('#sec04 .video_box > div video', {opacity: 0, ease: 'none', duration: 0.5}, 2)
+          .to(
+            "#sec04 .sec04_1",
+            { paddingTop: paddingTop, ease: "none", duration: 3 },
+            5
+          )
+          .to(
+            "#sec04 .sec04_1 .cont_wrap",
+            {
+              width: sec04_video_w,
+              height: sec04_video_h,
+              ease: "none",
+              duration: 3,
+            },
+            5
+          )
+          //.to('#sec04 .more_box .btn_2', {display: 'flex', opacity: 1, ease: 'none', duration: 1}, 5)
+          .to(
+            ".pinWrap",
+            { marginTop: "-" + resultVal, ease: "none", duration: 2 },
+            6.5
+          );
+
+        // sec06 고정 , 고객사 가로 스크롤
+        gsap.to("#sec06 .bottom_txt ul", {
+          scrollTrigger: {
+            trigger: "#sec06",
+            start: "top +" + resultVal,
+            //end: '+=1500',
+            scrub: 1,
+            pin: true,
+          },
+          x: sec06_x,
+        });
+      });
+    </script>
+  </body>
+</html>
