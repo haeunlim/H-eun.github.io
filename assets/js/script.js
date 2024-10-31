@@ -1,5 +1,55 @@
 // 스플리팅 호출
-jQuery(function () {
+$(document).ready(function () {
+  setTimeout(function () {
+    $("#loading").addClass("hide");
+  }, 1000);
+
+  $(document).on("click", 'a[href="#"]', function (e) {
+    e.preventDefault();
+  });
+
+  // header scroll
+  let prevScrollTop = 0;
+  document.addEventListener("scroll", function () {
+    let nowScrollTop = $(window).scrollTop();
+
+    if (nowScrollTop > prevScrollTop) {
+      $("header").addClass("active");
+    } else {
+      $("header").removeClass("active");
+    }
+    prevScrollTop = nowScrollTop;
+
+    if (nowScrollTop > 0) {
+      $("header").addClass("scroll");
+    } else {
+      $("header").removeClass("scroll");
+    }
+  });
+  //mobile menu open
+  $(".menu_open").on("click", function () {
+    $(".gnb").toggleClass("on");
+    $(this).toggleClass("on");
+    $("body").toggleClass("on");
+  });
+  //together sec
+  let typetext = new Typed(".typed", {
+    strings: [
+      "amazing",
+      "awesome",
+      "different",
+      "special",
+      "fabulous",
+      "stunning",
+      "brilliant",
+      "fantastic",
+      "impressive",
+      "incredible",
+    ],
+    typeSpeed: 50,
+    backSpeed: 50,
+    loop: true,
+  });
   //about sec diamond
   // 3D MOTION - DIAMOND
   const diamond3d_canvas = document.getElementById("diamond");
@@ -9,7 +59,9 @@ jQuery(function () {
   const diamond3d_frameCount = 90;
 
   const diamond3d_currentFrame = (index) =>
-    `https://haeunlim.github.io/portfolio/assets/img/f00${index.toString()}.png`;
+    `https://haeunlim.github.io/portfolio/assets/img/f0${index
+      .toString()
+      .padStart(3, "0")}.png`;
   const diamond3d_images = [];
   const diamond3d_clubbys = {
     frame: 0,
@@ -17,9 +69,6 @@ jQuery(function () {
 
   for (let i = 0; i < diamond3d_frameCount; i++) {
     const diamond3d_img = new Image();
-    if (i < 10) {
-      i = "0" + i;
-    }
     diamond3d_img.src = diamond3d_currentFrame(i);
     diamond3d_images.push(diamond3d_img);
   }
@@ -37,32 +86,31 @@ jQuery(function () {
     );
   }
 
-  setTimeout(function () {
-    gsap.registerPlugin(ScrollTrigger);
-    const scroller = document.querySelector(".scroller");
-    let bodyScrollBar = Scrollbar.init(scroller, {
-      damping: 0.1,
-      mobile: {
-        speed: 2,
-      },
-    });
-    bodyScrollBar.setPosition(0, 0);
-    bodyScrollBar.track.xAxis.element.remove();
-    ScrollTrigger.scrollerProxy(scroller, {
-      scrollTop(value) {
-        if (arguments.length) {
-          bodyScrollBar.scrollTop = value;
-        }
-        return bodyScrollBar.scrollTop;
-      },
-    });
-    bodyScrollBar.addListener(ScrollTrigger.update);
-    ScrollTrigger.defaults({ scroller: scroller });
+  gsap.registerPlugin(ScrollTrigger);
 
-    $(".animate").scrolla({
-      mobile: true,
-      once: false,
-    });
+  setTimeout(function () {
+    $(".visual_sec ").addClass("motion");
+
+    // const scroller = document.querySelector(".scroller");
+    // let bodyScrollBar = Scrollbar.init(scroller, {
+    //   damping: 0.1,
+    //   mobile: {
+    //     speed: 2,
+    //   },
+    // });
+    // bodyScrollBar.setPosition(0, 0);
+    // bodyScrollBar.track.xAxis.element.remove();
+    // ScrollTrigger.scrollerProxy(scroller, {
+    //   scrollTop(value) {
+    //     if (arguments.length) {
+    //       bodyScrollBar.scrollTop = value;
+    //     }
+    //     return bodyScrollBar.scrollTop;
+    //   },
+    // });
+    // bodyScrollBar.addListener(ScrollTrigger.update);
+    // ScrollTrigger.defaults({ scroller: scroller });
+
     //visualVideo;
     gsap
       .timeline({
@@ -70,7 +118,6 @@ jQuery(function () {
           trigger: ".about_sec", //트리거 대상
           start: "top 20%", //트리거 대상의 0%와 브라우저의 80%가 만날때 애니메이션이 시작됨.
           end: "bottom top",
-          // pin: ".visual_sec",
           scrub: 1, //gsap scrollTrigger 의 이벤트는 스크롤이 사용될 때만 재생되도록 만들어주는 속성
         },
       })
@@ -97,14 +144,15 @@ jQuery(function () {
     // )
 
     // 3D MOTION - DIAMOND
+
     gsap.set(".about_sec .wave_txt_box span", {
       yPercent: 0,
     });
     const yPercent_vh = (coef) => window.innerHeight * (coef / 100);
     console.log(yPercent_vh);
-    let dKit = gsap.timeline({
+    let aboutSecTl = gsap.timeline({
       scrollTrigger: {
-        scrub: 1.5,
+        scrub: 2,
         trigger: ".about_sec",
         pin: true,
         pinSpacing: true,
@@ -112,8 +160,7 @@ jQuery(function () {
         end: "+=200%",
       },
     });
-    dKit
-
+    aboutSecTl
       .fromTo(
         ".about_sec .wave_txt_box span",
         {
@@ -134,7 +181,7 @@ jQuery(function () {
         1
       )
       .fromTo(
-        ".my_skill img",
+        ".my_skill svg",
         {
           opacity: 0,
           transform: "translate3d(0, -90px, 0) skewY(-10deg)",
@@ -155,10 +202,11 @@ jQuery(function () {
       .fromTo(
         diamond3d_canvas,
         {
+          opacity: 0,
           yPercent: yPercent_vh(10),
-          duration: 1.5,
         },
         {
+          opacity: 1,
           yPercent: yPercent_vh(0),
           duration: 1.5,
         },
@@ -170,40 +218,125 @@ jQuery(function () {
           frame: diamond3d_frameCount - 1,
           snap: "frame",
           paused: false,
-          ease: "none",
+          ease: "power2.out",
           duration: 5,
           onUpdate: diamond3d_render,
         },
         "<"
       )
-      .to(".about_sec .txt_box", { opacity: 0 })
-      .to(".about_sec #diamond", { opacity: 0 }, "<")
+      .to(".about_sec .txt_box", {
+        opacity: 0,
+        duration: 1,
+        yPercent: yPercent_vh(-10),
+      })
+      .to(
+        ".about_sec #diamond",
+        { opacity: 0, duration: 1, yPercent: yPercent_vh(-10) },
+        "<"
+      )
       .to(".wrap", { backgroundColor: "#111", duration: 0.5 })
       .to(".project_intro_sec, .project_list_sec", { color: "#fff" });
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".project_intro_sec", //트리거 대상
-        start: "top 30%", //트리거 대상의 0%와 브라우저의 30%가 만날때 애니메이션이 시작됨.
-        scrub: 1, //gsap scrollTrigger 의 이벤트는 스크롤이 사용될 때만 재생되도록 만들어주는 속성
-      },
-    });
+    //project item img animation
 
-    gsap
-      .timeline({
+    const projectItems = gsap.utils.toArray(".project_list .project_item");
+    projectItems.forEach((item, index) => {
+      const img = item.querySelector(".img_box img");
+      gsap.set(item, {
+        yPercent: 0,
+      });
+      gsap.set(img, {
+        scale: 1,
+      });
+      let projectItemTl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".together",
-          start: "top 20%",
+          trigger: item,
+          scrub: 2,
+          start: "top 80%",
           end: "bottom 20%",
-          scrub: 1,
+          ease: "power2.out",
           markers: true,
         },
-      })
-      .to(".wrap", { backgroundColor: "#fdfdfd", duration: 0.5 }, 0);
-  }, 100);
+      });
+      projectItemTl
+        .to(
+          item,
+          {
+            yPercent: -20,
+            duration: 0.5,
+          },
+          0
+        )
+        .to(
+          img,
+          {
+            scale: 0.95,
+            duration: 0.5,
+            scrub: 2,
+            ease: "power2.out",
+          },
+          0
+        );
+      // setTimeout(() => {
+      //   projectItemTl.scrollTrigger.refresh();
+      //   console.log("object");
+      // }, 500);
+    });
+
+    //sub_project item  animation
+    const subProjectItems = gsap.utils.toArray(".sub_project_item a");
+    subProjectItems.forEach((item, index) => {
+      gsap.set(item, { yPercent: 0, padding: "3rem" });
+
+      let subProjectTl = gsap.timeline({
+        yoyo: !0,
+        paused: !0,
+        repeatRefresh: !0,
+        scrollTrigger: {
+          trigger: item,
+          invalidateOnRefresh: !0,
+          scrub: 1,
+          start: "top 80%",
+          end: "bottom 20%",
+          ease: "power2.out",
+          markers: true,
+        },
+      });
+      subProjectTl.to(
+        item,
+        {
+          padding: "2.5rem",
+          duration: 0.5,
+          scrub: 2,
+          stagger: 0.05,
+          ease: "sine.out",
+        },
+        "fade-in"
+      );
+    });
+    // gsap
+    //   .timeline({
+    //     yoyo: !0,
+    //     paused: !0,
+    //     repeatRefresh: !0,
+    //     scrollTrigger: {
+    //       trigger: ".together",
+    //       start: "top 30%",
+    //       end: "top 10%",
+    //       invalidateOnRefresh: !0,
+    //       scrub: 1,
+    //       ease: "power2.out",
+    //       markers: true,
+    //     },
+    //   })
+    //   .to(".wrap", { backgroundColor: "#fff" });
+
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+  }, 3000);
   // setTimeOut
 
-  ScrollTrigger.refresh();
   ScrollTrigger.config({
     ignoreMobileResize: true,
   });

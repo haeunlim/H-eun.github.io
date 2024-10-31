@@ -2,10 +2,12 @@
   width: min(1400px, calc(100% - 1.5rem));
   margin: 0 auto;
 }
-.inner.mw-1800 {
+.inner.mw-1600 {
   width: min(1600px, calc(100% - 1.5rem));
 }
-
+.inner.mw-1800 {
+  width: min(1800px, calc(100% - 1.5rem));
+}
 /*
 	skip-nav
 */
@@ -138,84 +140,25 @@ header .menu_open {
 .gnb ul li a:hover .char:after {
   transform: translateY(-100%);
 }
+
 /* footer */
-.footer {
-  background-color: var(--yellow);
-  padding-top: 80px;
-  padding-bottom: 80px;
+footer {
+  padding: 2rem 0 4rem;
+  color: #fff8;
+  font-size: clamp(0.9rem, 3vw, 0.8rem);
+  border-top: 1px solid #fff5;
 }
-.footer .flex-both {
-  position: relative;
-}
-.footer .links a {
-  font-weight: 600;
-  font-size: 24px;
-}
-.footer .links a + a {
-  margin-left: 60px;
-}
-.footer a[target="_blank"] span {
-  display: -ms-flexbox;
-  display: -webkit-flex;
+footer > div {
+  width: 100%;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
+  justify-content: space-between;
 }
-.footer a[target="_blank"] span::after {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-image: url("../images/ico_arrow-link.svg");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
-  margin-left: 8px;
+footer .my_info {
+  width: 100%;
+  font-size: clamp(0.9rem, 3vw, 0.8rem);
 }
-.footer .copyright {
-  font-weight: 600;
-  font-size: 19px;
-}
-@media all and (min-width: 961px) and (max-width: 1280px) {
-  .footer .links a + a {
-    margin-left: 4.688vw;
-  }
-}
-@media all and (max-width: 960px) {
-  .footer .flex-both {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-}
-@media all and (max-width: 768px) {
-  .footer {
-    padding-top: 0;
-    padding-bottom: 2.463vh;
-  }
-  .footer .gutter-100 {
-    padding-left: 3vw;
-    padding-right: 3vw;
-  }
-  .footer .links a {
-    font-size: 4.8vw;
-  }
-  .footer .links a + a {
-    margin-left: 6.667vw;
-  }
-  .footer a[target="_blank"] span::after {
-    width: 4.533vw;
-    height: 4.533vw;
-  }
-  .footer .links + .copyright {
-    margin-top: 10.667vw;
-  }
-  .footer .copyright {
-    font-size: 3.733vw;
-  }
+footer .my_info li:not(.copy_right) {
+  font-size: clamp(0.6rem, 2.5vw, 0.7rem);
 }
 
 /* popup */
