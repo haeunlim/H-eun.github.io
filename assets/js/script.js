@@ -2,7 +2,7 @@
 $(document).ready(function () {
   setTimeout(function () {
     $("#loading").addClass("hide");
-  }, 1000);
+  }, 3000);
 
   $(document).on("click", 'a[href="#"]', function (e) {
     e.preventDefault();
