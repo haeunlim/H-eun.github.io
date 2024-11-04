@@ -34,7 +34,9 @@ section {
   font-weight: 400;
   font-size: clamp(2rem, 6vw, 3rem);
 }
-
+.desc_box {
+  opacity: 0.8;
+}
 .pj_item-link {
   font-size: 1.2vw;
   font-weight: 600;
@@ -369,21 +371,78 @@ section {
 /* about_sec */
 .about_sec {
   position: relative;
-  overflow: hidden;
-  height: 100vh !important;
 }
 .about_sec .inner {
-  min-height: 100vh;
   max-width: 1400px;
+  position: relative;
+  height: 100vh;
 }
 
-.about_sec .txt_box {
+.about_sec .about_box {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about_sec .desc_box {
   width: calc(100% - 32.5rem);
   margin-right: 2.5rem;
+}
+.about_sec .visual_box {
+  width: 30rem;
+}
+.about_sec .fix_txt {
+  font-size: 10rem;
+  color: var(--blue);
+  opacity: 0.3;
+  font-weight: 800;
+  position: absolute;
+  white-space: nowrap;
+  left: 120%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.about_sec .desc_box {
   font-size: 2rem;
 }
-.diamond_wrap {
+.about_sec .about_box2 .desc_box {
+  font-size: 1.3rem;
+}
+.about_visual {
+  position: relative;
   width: 30rem;
+}
+.skill_logos {
+  gap: 0.5rem 0;
+}
+.skill_logos li {
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16.6666%;
+}
+.skill_logos li .hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+.skill_logos li img,
+.skill_logos li svg {
+  height: 100%;
+  display: block;
+}
+.diamond_wrap {
+  width: 100%;
   display: block;
   filter: saturate(70%) brightness(160%);
 }
@@ -400,44 +459,15 @@ section {
 .skill_sec .tit_box {
   text-align: center;
 }
-.skill_sec .txt_box {
+.skill_sec .desc_box {
   margin: 3rem auto 2rem;
   max-width: 50rem;
   line-height: 1.7;
   color: #555;
   text-align: left;
 }
-.skill_sec .txt_box b {
+.skill_sec .desc_box b {
   color: #111;
-}
-.skill_sec .tit_box,
-.skill_sec .txt_box,
-.skill_sec .skill_logos {
-  overflow: hidden;
-}
-.skill_sec .tit,
-.skill_sec .txt_box p {
-  position: relative;
-}
-.skill_sec .skill_logos {
-  gap: 0.5rem;
-}
-.skill_sec .skill_logos li {
-  height: 40px;
-  position: relative;
-}
-.skill_sec .skill_logos li .hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-}
-.skill_sec .skill_logos li img,
-.skill_sec .skill_logos li svg {
-  height: 100%;
-  display: block;
 }
 
 /* project_intro_sec */
@@ -447,8 +477,26 @@ section {
 .project_intro_sec .tit_box {
   width: 25rem;
 }
-.project_intro_sec .txt_box {
+.project_intro_sec .desc_box {
   width: calc(100% - 25rem);
+}
+
+.project_intro_sec.move .change_ani_box {
+  animation: changeTxt 3s;
+}
+@keyframes changeTxt {
+  0% {
+    transform: translateY(0);
+  }
+  33.333% {
+    transform: translateY(-33.3333%);
+  }
+  66.6666% {
+    transform: translateY(-66.666%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .tit_change_box {
@@ -548,14 +596,14 @@ section {
 .project_tit_box .tit {
   font-size: clamp(1.5rem, 2.6666vw, 1.8rem);
 }
-.project_txt_box {
+.project_item .desc_box {
   margin: 1rem 0;
   width: max(2.4rem, 18vw);
 }
-.project_txt_box p {
+.project_item .desc_box p {
   font-size: 0.8rem;
 }
-.project_txt_box p + p {
+.project_item .desc_box p + p {
   margin-top: 1rem;
 }
 
@@ -567,19 +615,22 @@ section {
 .project_item .img_box a {
   position: relative;
 }
-.more_view {
+.project_item .img_box a img {
+  margin: 0 auto;
+}
+.project_item .more_view {
   position: absolute;
   top: 0;
   left: 0;
   padding: 1rem;
-  background-color: #0030b5a8;
+  background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   display: flex;
   align-items: end;
   justify-content: space-between;
   z-index: 2;
-  transition: all 0.5s;
+  transition: all 0.2s;
   opacity: 0;
   font-size: 0.8rem;
 }
@@ -635,72 +686,6 @@ section {
   transform: translateY(0) skew(0, 0);
 }
 
-.sub_project_sec {
-  min-height: 100vh;
-  padding: 7rem 0;
-  color: #fff;
-}
-.sub_project_sec .tit_box {
-  margin-bottom: 3rem;
-}
-.sub_project_list {
-  border-bottom: 1px solid #fff2;
-}
-.sub_project_item + .sub_project_item {
-  border-top: 1px solid #fff2;
-}
-.sub_project_item {
-  position: relative;
-}
-.sub_project_item a {
-  display: grid;
-  grid-template-columns: 10fr 20fr 40fr;
-  width: 100%;
-  padding-top: clamp(2rem, 5vw, 3rem);
-  padding-bottom: clamp(2rem, 5vw, 3rem);
-  max-width: 1600px;
-  margin: 0 auto;
-}
-.sub_project_item a:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: linear-gradient(90deg, hsla(0, 0%, 100%, 0.1) 80%, transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-.sub_project_item a:focus:after,
-.sub_project_item a:hover:after {
-  opacity: 1;
-}
-.sub_project_item a .num {
-  font-size: clamp(1.5rem, 2.6666vw, 1.8rem);
-}
-.sub_project_item a .sub_tit {
-  font-size: clamp(1.5rem, 2.6666vw, 1.8rem);
-  font-weight: 500;
-  word-break: break-all;
-}
-.sub_project_item a .sub_txt_box {
-  font-size: clamp(1rem, 1.04166vw, 1rem);
-}
-.sub_project_item a .project_tag {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.8em;
-  flex-direction: row;
-  flex-wrap: wrap;
-  font-size: 0.8em;
-  opacity: 0.5;
-  margin-top: 0.5rem;
-}
 /* my work */
 
 .pj_intro {
@@ -836,12 +821,12 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "squada One", cursive;
+  font-family: "Public Sans", sans-serif;
   position: relative;
   overflow: hidden;
 }
 
-.together .tit_wrap {
+.together .tit_box {
   padding-top: 300px;
   padding-bottom: 98px;
 }
@@ -982,11 +967,11 @@ section {
   }
 }
 
-.contact_sec .txt_box {
+.contact_sec .desc_box {
   width: 100%;
   padding: 1rem 0;
 }
-.contact_sec .txt_box .sub_tit {
+.contact_sec .desc_box .sub_tit {
   font-size: clamp(1.2rem, 6vw, 1.5rem);
   margin-bottom: 1.5rem;
 }

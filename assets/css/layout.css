@@ -47,7 +47,6 @@
 
 .header {
   height: min(13vw, 108px);
-  background-color: transparent;
   position: fixed;
   left: 0;
   top: 0;
@@ -55,6 +54,7 @@
   z-index: 9999;
   transition: all 0.3s, transform 0.8s;
   color: #fff;
+  background-color: transparent;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   border-bottom: 1px solid #fff2;

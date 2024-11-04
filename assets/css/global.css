@@ -44,7 +44,6 @@ h6 {
 
 button {
   background: transparent;
-  font-family: var(--font-grotesk), var(--font-pretendard), sans-serif;
 }
 .sound-only {
   position: absolute;
