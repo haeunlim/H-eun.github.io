@@ -382,20 +382,6 @@ section {
   margin-right: 2.5rem;
   font-size: 2rem;
 }
-.my_skill {
-  width: 90%;
-  margin-top: 1.5rem;
-}
-.my_skill ul {
-  gap: 0.5rem;
-}
-.my_skill li {
-  overflow: hidden;
-}
-.my_skill li img {
-  display: block;
-  position: relative;
-}
 .diamond_wrap {
   width: 30rem;
   display: block;
@@ -403,6 +389,55 @@ section {
 }
 .diamond_wrap canvas {
   width: 100%;
+}
+
+/* my skill */
+
+.skill_sec {
+  background: #dbefff;
+  padding: 6rem 0 7.5rem;
+}
+.skill_sec .tit_box {
+  text-align: center;
+}
+.skill_sec .txt_box {
+  margin: 3rem auto 2rem;
+  max-width: 50rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: left;
+}
+.skill_sec .txt_box b {
+  color: #111;
+}
+.skill_sec .tit_box,
+.skill_sec .txt_box,
+.skill_sec .skill_logos {
+  overflow: hidden;
+}
+.skill_sec .tit,
+.skill_sec .txt_box p {
+  position: relative;
+}
+.skill_sec .skill_logos {
+  gap: 0.5rem;
+}
+.skill_sec .skill_logos li {
+  height: 40px;
+  position: relative;
+}
+.skill_sec .skill_logos li .hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+.skill_sec .skill_logos li img,
+.skill_sec .skill_logos li svg {
+  height: 100%;
+  display: block;
 }
 
 /* project_intro_sec */

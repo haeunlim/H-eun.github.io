@@ -181,25 +181,6 @@ $(document).ready(function () {
         1
       )
       .fromTo(
-        ".my_skill svg",
-        {
-          opacity: 0,
-          transform: "translate3d(0, -90px, 0) skewY(-10deg)",
-          transformOrigin: "top left",
-          duration: 1.5,
-        },
-        {
-          opacity: 1,
-          transform: "translate3d(0, 0, 0) skewY(0deg)",
-          transformOrigin: "top left",
-          duration: 1.5,
-          stagger: {
-            each: 0.2,
-          },
-        },
-        1
-      )
-      .fromTo(
         diamond3d_canvas,
         {
           opacity: 0,
@@ -233,17 +214,75 @@ $(document).ready(function () {
         ".about_sec #diamond",
         { opacity: 0, duration: 1, yPercent: yPercent_vh(-10) },
         "<"
+      );
+
+    // my skill
+    gsap.set(".skill_sec .tit, .skill_sec .txt_box p, .skill_logos li", {
+      yPercent: 0,
+    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".skill_sec",
+          start: "top 60%",
+          end: "top 10%",
+          ease: "power1.out",
+          scrub: 2,
+        },
+      })
+      .fromTo(
+        ".skill_sec .tit",
+        {
+          opacity: 0,
+          transform: "translate3d(0, -90px, 0) skewY(-10deg)",
+          transformOrigin: "top left",
+        },
+        {
+          opacity: 1,
+          transform: "translate3d(0, 0, 0) skewY(0deg)",
+          transformOrigin: "top left",
+          duration: 2,
+        }
       )
-      .to(".wrap", { backgroundColor: "#111", duration: 0.5 })
-      .to(".project_intro_sec, .project_list_sec", { color: "#fff" });
+      .fromTo(
+        ".skill_sec .txt_box p, .skill_logos li",
+        {
+          opacity: 0,
+          transform: "translate3d(0, -90px, 0) skewY(-10deg)",
+          transformOrigin: "top left",
+        },
+        {
+          opacity: 1,
+          transform: "translate3d(0, 0, 0) skewY(0deg)",
+          transformOrigin: "top left",
+          duration: 2,
+          stagger: {
+            each: 0.2,
+          },
+        }
+      );
 
-    //project item img animation
+    // project bg text color
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".project_intro_sec",
+          scrub: 1,
+          ease: "none",
+          duration: 1,
+          start: "top 60%",
+          end: "top 40%",
+        },
+      })
+      .to(".wrap", { backgroundColor: "#111" })
+      .to(".project_intro_sec, .project_list_sec", { color: "#fff" }, "<");
 
+    // project item
     const projectItems = gsap.utils.toArray(".project_list .project_item");
     projectItems.forEach((item, index) => {
       const img = item.querySelector(".img_box img");
       gsap.set(item, {
-        yPercent: 0,
+        yPercent: 20,
       });
       gsap.set(img, {
         scale: 1,
@@ -253,16 +292,15 @@ $(document).ready(function () {
           trigger: item,
           scrub: 2,
           start: "top 80%",
-          end: "bottom 20%",
+          end: "top 50%",
           ease: "power2.out",
-          markers: true,
         },
       });
       projectItemTl
         .to(
           item,
           {
-            yPercent: -20,
+            yPercent: 0,
             duration: 0.5,
           },
           0
@@ -299,7 +337,6 @@ $(document).ready(function () {
           start: "top 80%",
           end: "bottom 20%",
           ease: "power2.out",
-          markers: true,
         },
       });
       subProjectTl.to(
