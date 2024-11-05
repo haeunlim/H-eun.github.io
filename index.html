@@ -27,17 +27,19 @@
     <div class="wrap">
       <!-- header -->
       <header class="header">
-        <div class="inner flex-b-c">
+        <div class="inner mw-1800 flex-b-c">
           <div class="logo_area">
             <h1 class="logo">
               <a href="index.html">
-                <span class="en2">2024 H.eun</span> Portfolio
+                <img src="assets/img/logo.png" alt="다이아몬드 로고" /> HAEUN.L
+                &nbsp;
+                <span class="point-color"> PORTFOLIO </span>
               </a>
             </h1>
           </div>
           <nav class="gnb en">
             <ul>
-              <li><a href="#about_sec" data-splitting>About</a></li>
+              <li><a href="#aboutTop" data-splitting>About</a></li>
               <li><a href="#project_intro_sec" data-splitting>Work</a></li>
               <li><a href="#contact_sec" data-splitting>Contact</a></li>
             </ul>
@@ -71,7 +73,8 @@
               <div class="scroll">Scroll Down</div>
             </div>
           </section>
-          <section class="about_sec">
+          <div id="aboutTop"></div>
+          <section class="about_sec" id="about_sec">
             <div class="inner">
               <div class="about_box about_box1">
                 <div class="desc_box">
@@ -188,7 +191,7 @@
               </div>
             </div>
           </section>
-          <section class="project_intro_sec">
+          <section class="project_intro_sec" id="project_intro_sec">
             <div class="inner flex-b-c">
               <div class="tit_box">
                 <h2>
@@ -206,8 +209,12 @@
                 <p>
                   견고한 마크업을 바탕으로, 디자인을 공감하고 기획에 맞는
                   인터랙션을 구현하여 클라이언트와 사용자의 니즈를 충족시키는
-                  것에서 보람을 느낍니다.<br />기억에 남아 오래 사용하고 싶은,
-                  사용하기 편리한 사이트를 만드는것에 중점을 둡니다.
+                  것에서 보람을 느낍니다. 기억에 남아 오래 사용하고 싶은,
+                  사용하기 편리한 사이트를 만드는것에 중점을 둡니다. 견고한
+                  마크업을 바탕으로, 디자인을 공감하고 기획에 맞는 인터랙션을
+                  구현하여 클라이언트와 사용자의 니즈를 충족시키는 것에서 보람을
+                  느낍니다. 기억에 남아 오래 사용하고 싶은, 사용하기 편리한
+                  사이트를 만드는것에 중점을 둡니다.
                 </p>
               </div>
             </div>
@@ -218,6 +225,28 @@
               <h2 class="sound-only">대표 프로젝트</h2>
               <ul class="project_list">
                 <li class="project_item posco">
+                  <div class="img_box">
+                    <a
+                      titㅣㄷ="포스코 채용사이트"
+                      href="https://recruit.posco.com/h22a01-front/H22AMain.html"
+                      target="_blank"
+                      tabindex="-1"
+                    >
+                      <div class="more_view">
+                        <p class="project_work">
+                          Main, 사업영역, 직무소개, 직무인터뷰, Careers,
+                          Benefit, 채용 프로세스 총 7페이지 퍼블리싱 100%
+                        </p>
+                        <span> View Site </span>
+                      </div>
+                      <img
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        data-nimg="fill"
+                        src="assets/img/work_posco.png"
+                    /></a>
+                  </div>
                   <div class="txt_box">
                     <div class="project_tit_box">
                       <h3 class="tit">포스코 채용사이트<br />(부분 리뉴얼)</h3>
@@ -228,14 +257,14 @@
                         <p>
                           부분 리뉴얼로 기존 코드에 영향을 주지 않는 선에서 PC
                           웹은 태블릿 사이즈를 고려하여, 모바일 웹은 iOS와
-                          Android에서 동일한 인터페이스로 작업했습니다.
-                          <br />작업을 통해 여러 도전적인 과제들을 해결하면서
-                          성취감을 느꼈고, 특히 기억에 남는 인터뷰 페이지
-                          작업에서는 데이터 로딩 과정에서 발생한 오류를 분석해
-                          수정하는 작업이 있었습니다. 또한, 두 개의 Swiper
-                          슬라이드가 상호 반응하도록 해야 하는 복잡한 로직을
-                          포스코DX 개발자와 협업하여 성공적으로 구현했습니다.<br />
-                          이 프로젝트는 열정과 애정을 쏟아부은 값진 경험이
+                          Android에서 동일한 인터페이스로 작업했습니다. 작업을
+                          통해 여러 도전적인 과제들을 해결하면서 성취감을
+                          느꼈고, 특히 기억에 남는 인터뷰 페이지 작업에서는
+                          데이터 로딩 과정에서 발생한 오류를 분석해 수정하는
+                          작업이 있었습니다. 또한, 두 개의 Swiper 슬라이드가
+                          상호 반응하도록 해야 하는 복잡한 로직을 포스코DX
+                          개발자와 협업하여 성공적으로 구현했습니다. 이
+                          프로젝트는 열정과 애정을 쏟아부은 값진 경험이
                           되었습니다.
                         </p>
                       </div>
@@ -264,30 +293,33 @@
                       </li>
                     </ul>
                   </div>
+                </li>
+                <li class="project_item bigin">
                   <div class="img_box">
                     <a
-                      titㅣㄷ="포스코 채용사이트"
-                      href="https://recruit.posco.com/h22a01-front/H22AMain.html"
+                      titㅣㄷ="보험정보 빅데이터 플랫폼"
+                      href="https://bigin.kidi.or.kr:9443/"
                       target="_blank"
                       tabindex="-1"
-                    >
+                      ><span class="wa-mark">
+                        <img
+                          src="assets/img/wa.png"
+                          alt="과학기술정보통신부 WA(WEB접근성) 품질인증 마크, 웹와치(WebWatch) 2024.04.15~2025.04.14"
+                        />
+                      </span>
                       <div class="more_view">
-                        <p class="project_work">
-                          Main, 사업영역, 직무소개, 직무인터뷰, Careers,
-                          Benefit, 채용 프로세스 총 7페이지 퍼블리싱 100%
-                        </p>
+                        <p class="project_work flex--e">퍼블리싱 100%</p>
                         <span> View Site </span>
                       </div>
+
                       <img
                         alt=""
                         loading="lazy"
                         decoding="async"
                         data-nimg="fill"
-                        src="assets/img/work_posco.png"
+                        src="assets/img/work_kidi.png"
                     /></a>
                   </div>
-                </li>
-                <li class="project_item bigin">
                   <div class="txt_box">
                     <div class="project_tit_box">
                       <h3 class="tit">보험정보 빅데이터 플랫폼</h3>
@@ -334,33 +366,27 @@
                       </li>
                     </ul>
                   </div>
+                </li>
+                <li class="project_item tacenol">
                   <div class="img_box">
                     <a
-                      titㅣㄷ="보험정보 빅데이터 플랫폼"
-                      href="https://bigin.kidi.or.kr:9443/"
+                      titㅣㄷ="부광약품 타세놀"
+                      href="http://tacenol.co.kr/"
                       target="_blank"
                       tabindex="-1"
-                      ><span class="wa-mark">
-                        <img
-                          src="assets/img/wa.png"
-                          alt="과학기술정보통신부 WA(WEB접근성) 품질인증 마크, 웹와치(WebWatch) 2024.04.15~2025.04.14"
-                        />
-                      </span>
+                    >
                       <div class="more_view">
-                        <p class="project_work flex--e">퍼블리싱 100%</p>
+                        <p class="project_work">퍼블리싱 100%</p>
                         <span> View Site </span>
                       </div>
-
                       <img
                         alt=""
                         loading="lazy"
                         decoding="async"
                         data-nimg="fill"
-                        src="assets/img/work_kidi.png"
+                        src="assets/img/work_tacenol.png"
                     /></a>
                   </div>
-                </li>
-                <li class="project_item tacenol">
                   <div class="txt_box">
                     <div class="project_tit_box">
                       <h3 class="tit">부광약품 타세놀</h3>
@@ -391,10 +417,12 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="img_box">
+                </li>
+                <li class="project_item">
+                  <div class="img_box tacenol">
                     <a
-                      titㅣㄷ="부광약품 타세놀"
-                      href="http://tacenol.co.kr/"
+                      titㅣㄷ="경기과학기술대학교"
+                      href="https://www.gtec.ac.kr/landing/13/index.html"
                       target="_blank"
                       tabindex="-1"
                     >
@@ -407,11 +435,9 @@
                         loading="lazy"
                         decoding="async"
                         data-nimg="fill"
-                        src="assets/img/work_tacenol.png"
+                        src="assets/img/work_gtec.png"
                     /></a>
                   </div>
-                </li>
-                <li class="project_item">
                   <div class="txt_box">
                     <div class="project_tit_box">
                       <h3 class="tit">경기과학 기술 대학교</h3>
@@ -446,10 +472,12 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="img_box tacenol">
+                </li>
+                <li class="project_item">
+                  <div class="img_box uAndI">
                     <a
-                      titㅣㄷ="경기과학기술대학교"
-                      href="https://www.gtec.ac.kr/landing/13/index.html"
+                      titㅣㄷ="유앤아이피부과(에약페이지)"
+                      href="https://www.uni114.co.kr/reservation/select_surgery.php"
                       target="_blank"
                       tabindex="-1"
                     >
@@ -462,11 +490,9 @@
                         loading="lazy"
                         decoding="async"
                         data-nimg="fill"
-                        src="assets/img/work_gtec.png"
+                        src="assets/img/work_uNi.png"
                     /></a>
                   </div>
-                </li>
-                <li class="project_item">
                   <div class="txt_box">
                     <div class="project_tit_box">
                       <h3 class="tit">유앤아이피부과(예약페이지)</h3>
@@ -501,25 +527,6 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="img_box uAndI">
-                    <a
-                      titㅣㄷ="유앤아이피부과(에약페이지)"
-                      href="https://www.uni114.co.kr/reservation/select_surgery.php"
-                      target="_blank"
-                      tabindex="-1"
-                    >
-                      <div class="more_view">
-                        <p class="project_work">퍼블리싱 100%</p>
-                        <span> View Site </span>
-                      </div>
-                      <img
-                        alt=""
-                        loading="lazy"
-                        decoding="async"
-                        data-nimg="fill"
-                        src="assets/img/work_uNi.png"
-                    /></a>
-                  </div>
                 </li>
               </ul>
             </div>
@@ -534,7 +541,7 @@
               </h2>
             </div>
           </section>
-          <section class="contact_sec">
+          <section class="contact_sec" id="contact_sec">
             <div class="inner mw-1600">
               <div class="tit_box">
                 <div class="ani_txt_box">
@@ -542,10 +549,8 @@
                   <p class="fix_text">Contact</p>
                 </div>
               </div>
-              <div class="desc_box">
-                <h3 class="sub_tit">
-                  Want to <span class="en2">Work Together?</span>
-                </h3>
+              <div class="txt_box">
+                <h3 class="sub_tit">Want to Work Together?</h3>
                 <div class="contact_list en flex--c">
                   <p>
                     <a href="tel:01035602336"
@@ -581,6 +586,7 @@
     <script src="assets/js/lib/gsap.min.js"></script>
     <script src="assets/js/lib/ScrollTrigger.min.js"></script>
     <script src="assets/js/lib/smooth-scrollbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js"></script>
     <script src="assets/js/lib/splitting.min.js"></script>
     <script src="assets/js/lib/scrolla.jquery.min.js"></script>
     <script src="assets/js/lib/typed.min.js"></script>
