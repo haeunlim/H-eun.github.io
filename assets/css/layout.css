@@ -46,7 +46,7 @@
 /* header */
 
 .header {
-  height: min(13vw, 108px);
+  height: min(5rem, 100px);
   position: fixed;
   left: 0;
   top: 0;
@@ -73,12 +73,12 @@
 }
 
 .header.fix {
-  top: calc(min(13vw, 108px) * -1);
+  top: calc(min(5rem, 100px) * -1);
 }
 
 .header .inner {
   position: relative;
-  height: min(13vw, 108px);
+  height: min(5rem, 100px);
   overflow: hidden;
   z-index: 100;
 }
@@ -146,9 +146,10 @@ header .menu_open {
 /* footer */
 footer {
   padding: 2rem 0 4rem;
-  color: #fff9;
   font-size: clamp(0.9rem, 3vw, 0.8rem);
-  border-top: 1px solid #fff5;
+  border-top: 1px solid #fff8;
+  background-color: #000e35;
+  color: #fff;
 }
 footer > div {
   width: 100%;
@@ -161,4 +162,10 @@ footer .my_info {
 }
 footer .my_info li:not(.copy_right) {
   font-size: clamp(0.6rem, 2.5vw, 0.7rem);
+}
+
+@media screen and (max-width: 768px) {
+  .gnb {
+    display: none;
+  }
 }

@@ -15,6 +15,8 @@ $(document).ready(function () {
   aboutAnimation();
   projectIntroAnimation();
   projectAnimation();
+  subProjectAnimation();
+  togetherAnimation();
   typedAnimation();
 
   ScrollTrigger.refresh();
@@ -91,13 +93,13 @@ function scroller() {
       $(".header").removeClass("scroll");
     }
 
-    let winH = $(window).height() / 3;
-    const proejctIntroSecTop = $(".project_intro_sec").offset().top;
-    if (nowScrollTop + winH >= proejctIntroSecTop) {
-      $(".project_intro_sec").addClass("move");
-    } else {
-      $(".project_intro_sec").removeClass("move");
-    }
+    // let winH = $(window).height() / 3;
+    // const proejctIntroSecTop = $(".project_intro_sec").offset().top;
+    // if (nowScrollTop + winH >= proejctIntroSecTop) {
+    //   $(".project_intro_sec").addClass("move");
+    // } else {
+    //   $(".project_intro_sec").removeClass("move");
+    // }
   });
 }
 
@@ -240,30 +242,41 @@ function aboutAnimation() {
   };
 
   // const yPercent_vh = (coef) => window.innerHeight * (coef / 100);
-
-  gsap
+  const fixTxtWidth = DOM.fixTxt.clientWidth + window.innerWidth;
+  console.log(fixTxtWidth);
+  let abouttl1 = gsap
     .timeline({
       scrollTrigger: {
         scrub: 3,
         trigger: section,
         start: "top 30%",
         ease: "power4.in",
+        onUpdate: function () {
+          const progress = abouttl1.progress(); // 0 ~ 1
+          diamond3d_clubbys.frame = Math.floor(progress * diamond3d_frameCount);
+
+          // 프레임을 0 ~ 89 사이로 유지하여 반복
+          diamond3d_clubbys.frame =
+            diamond3d_clubbys.frame % diamond3d_frameCount;
+          diamond3d_render();
+        },
       },
     })
+    .set(DOM.diamond, { autoAlpha: 1 })
     .to(DOM.diamond, {
       transformOrigin: "50% 50%",
       keyframes: {
-        "0%": { scale: 2, opacity: 0 },
-        "30%": { scale: 1, opacity: 1 },
-        "50%": { x: 0, y: 0 },
-        "70%": { y: 0, x: "40%" },
+        "0%": { scale: 2, opacity: 0, ease: "power2.out" },
+        "30%": { scale: 1, opacity: 1, ease: "power2.out" },
+        "50%": { x: 0, y: 0, ease: "power2.inOut" }, // 부드러운 이징
+        "70%": { y: 0, x: "60%", ease: "power2.inOut" },
       },
-      duration: 1,
+      duration: 5,
     })
     .to(
       DOM.fixTxt,
       {
-        x: "-300%",
+        x: -fixTxtWidth,
         duration: 3,
       },
       "<"
@@ -281,30 +294,25 @@ function aboutAnimation() {
       end: "+=250%",
       onUpdate: function () {
         const progress = aboutSecTl.progress(); // 0 ~ 1
-        diamond3d_clubbys.frame = Math.floor(
-          progress * (diamond3d_frameCount * 2)
-        ); // 0 ~ 178
+        diamond3d_clubbys.frame = Math.floor(progress * diamond3d_frameCount);
 
-        // 프레임을 0 ~ 89 사이로 유지
+        // 프레임을 0 ~ 89 사이로 유지하여 반복
         diamond3d_clubbys.frame =
           diamond3d_clubbys.frame % diamond3d_frameCount;
-
-        diamond3d_render(); // 렌더링 호출
+        diamond3d_render();
       },
     },
   });
 
   aboutSecTl
-    .to(diamond3d_clubbys, {
-      frame: diamond3d_frameCount - 1,
-      snap: "frame",
-      paused: false,
-      ease: "power2.out",
-      // duration: 5,
-      // onUpdate: diamond3d_render,
-    })
+    // .to(diamond3d_clubbys, {
+    //   frame: diamond3d_frameCount - 1,
+    //   snap: "frame",
+    //   paused: false,
+    //   ease: "power2.out",
+    //   // onUpdate: diamond3d_render,
+    // })
 
-    .to(diamond3d_clubbys, { opacity: 0, duration: 0.5 }, "-=0.5")
     .fromTo(
       DOM.txt1,
       {
@@ -324,7 +332,7 @@ function aboutAnimation() {
       },
       1
     )
-
+    .to(diamond3d_clubbys, { opacity: 0, duration: 0.5 }, "-=0.5")
     .to(DOM.box1, {
       opacity: 0,
       delay: 3,
@@ -341,7 +349,7 @@ function aboutAnimation() {
         transform: "translate3d(0, 0, 0) skewY(0deg)",
         transformOrigin: "top left",
         duration: 5,
-        delay: 0.5,
+        delay: 1,
         stagger: {
           each: 1,
         },
@@ -363,13 +371,12 @@ function aboutAnimation() {
       DOM.skills,
       {
         opacity: 0,
-        transform: "translate3d(0, -90px, 0) skewY(-10deg)",
-        transformOrigin: "top left",
+        scale: 0.8,
       },
       {
         opacity: 1,
-        transform: "translate3d(0, 0, 0) skewY(0deg)",
-        transformOrigin: "top left",
+        scale: 1,
+        transformOrigin: "50% 50%",
         duration: 2,
         stagger: {
           each: 0.5,
@@ -396,15 +403,17 @@ function projectIntroAnimation() {
         end: "top 40%",
         onEnter: function () {
           $(".header").removeClass("white");
+          $(".project_intro_sec").addClass("move");
         },
         onLeaveBack: function () {
           $(".header").addClass("white");
+          $(".project_intro_sec").removeClass("move");
         },
       },
     })
-    .to(wrap, { backgroundColor: "#111" })
-    .to(section, { color: "#fff" }, "<")
-    .to(listSection, { color: "#fff" }, "<");
+    .to(wrap, { backgroundColor: "#111", color: "#fff" });
+  // .to(section, { color: "#fff" }, "<")
+  // .to(listSection, { color: "#fff" }, "<");
   // .to(
   //   header,
   //   {
@@ -465,4 +474,75 @@ function projectAnimation() {
         0
       );
   });
+}
+
+function subProjectAnimation() {
+  // project item
+  const section = document.querySelector(".sub_project");
+  const items = gsap.utils.toArray(".sub_pj_item a");
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: section,
+        scrub: 1,
+        start: "top 80%",
+        end: "top 60%",
+        ease: "power2.out",
+        invalidateOnRefresh: true,
+      },
+    })
+    .to(".wrap", { duration: 0.2, backgroundColor: "#000e35" });
+
+  items.forEach((item, index) => {
+    const imgs = document.querySelector(".project_list .project_item img");
+    // 이미지 로드 이벤트 리스너 추가
+    imgs.addEventListener("load", () => {
+      // 이미지가 로드되면 ScrollTrigger를 새로고침하여 정확한 위치를 계산
+      ScrollTrigger.refresh();
+    });
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: item,
+        scrub: 2,
+        start: "top 80%",
+        end: "bottom bottom",
+        ease: "power2.out",
+        invalidateOnRefresh: true,
+      },
+    });
+    tl.to(item, {
+      paddingTop: "3rem",
+      paddingBottom: "3rem",
+    });
+  });
+}
+
+function togetherAnimation() {
+  const section = document.querySelector(".together");
+  const imgs = document.querySelector(".project_list .project_item img");
+  // 이미지 로드 이벤트 리스너 추가
+  imgs.addEventListener("load", () => {
+    // 이미지가 로드되면 ScrollTrigger를 새로고침하여 정확한 위치를 계산
+    ScrollTrigger.refresh();
+  });
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: section,
+        scrub: 1,
+        start: "top 80%",
+        end: "top 60%",
+        ease: "power2.out",
+        invalidateOnRefresh: true,
+        onEnter: function () {
+          $(".header").addClass("white");
+        },
+        onLeaveBack: function () {
+          $(".header").removeClass("white");
+        },
+      },
+    })
+    .to(".wrap", { duration: 0.2, backgroundColor: "#dbefff", color: "#111" });
 }
