@@ -576,32 +576,61 @@ $(document).ready(function () {
       color: "#111",
     });
 
-  let allImages = $("img");
-  let totalImages = allImages.length;
-  let loadedImages = 0;
+  $(document).ready(function () {
+    let allImages = $("img");
+    let totalImages = allImages.length;
+    let loadedImages = 0;
+    let isTimeoutReached = false;
 
-  allImages.each(function () {
-    // 이미지가 로드될 때마다 카운트 증가
-    $(this)
-      .on("load", function () {
-        $("#loading").addClass("hide");
-        $(".visual_sec ").addClass("motion");
-        loadedImages++;
-        if (loadedImages === totalImages) {
-          // 모든 이미지가 로드되면 gsap.refresh() 실행
-          ScrollTrigger.refresh();
-        }
-      })
-      .on("error", function () {
-        // 에러 핸들링 (이미지 로드 실패 시에도 카운트 증가)
-        loadedImages++;
-        if (loadedImages === totalImages) {
-          ScrollTrigger.refresh();
-        }
-      });
+    // 5초 타임아웃 설정
+    let loadTimeout = setTimeout(function () {
+      isTimeoutReached = true;
+      console.log("Timeout reached. Forcing gsap.refresh()");
+      ScrollTrigger.refresh();
+      $("#loading").addClass("hide");
+      $(".visual_sec").addClass("motion");
+    }, 5000); // 타임아웃 시간(밀리초)
 
-    // 캐시된 이미지도 로드 완료 이벤트 발생시키기 위한 트릭
-    if (this.complete) $(this).trigger("load");
+    allImages.each(function (index) {
+      let $img = $(this);
+      let imgSrc = $img.attr("src");
+
+      // 로드 이벤트
+      $img
+        .on("load", function () {
+          loadedImages++;
+          console.log(
+            `Image loaded: ${imgSrc} (${loadedImages}/${totalImages})`
+          );
+
+          if (loadedImages === totalImages && !isTimeoutReached) {
+            clearTimeout(loadTimeout);
+            console.log("All images loaded. Running gsap.refresh()");
+            ScrollTrigger.refresh();
+            $("#loading").addClass("hide");
+            $(".visual_sec").addClass("motion");
+          }
+        })
+        .on("error", function () {
+          loadedImages++;
+          console.warn(
+            `Error loading image: ${imgSrc} (${loadedImages}/${totalImages})`
+          );
+
+          if (loadedImages === totalImages && !isTimeoutReached) {
+            clearTimeout(loadTimeout);
+            console.log("All images loaded or failed. Running gsap.refresh()");
+            ScrollTrigger.refresh();
+            $("#loading").addClass("hide");
+            $(".visual_sec").addClass("motion");
+          }
+        });
+
+      // 캐시된 이미지도 로드 완료 이벤트 발생시키기 위한 트릭
+      if ($img[0].complete) {
+        $img.trigger("load");
+      }
+    });
   });
 
   ScrollTrigger.config({
