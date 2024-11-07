@@ -26,17 +26,15 @@
 
     <div class="wrap">
       <!-- header -->
-      <header class="header">
+      <header class="header" id="header">
         <div class="inner mw-1800 flex-b-c">
-          <div class="logo_area">
-            <h1 class="logo">
-              <a href="index.html">
-                <img src="assets/img/logo.png" alt="다이아몬드 로고" /> HAEUN.L
-                &nbsp;
-                <span class="point-color"> PORTFOLIO </span>
-              </a>
-            </h1>
-          </div>
+          <h1 class="logo">
+            <a href="index.html">
+              <img src="assets/img/logo.png" alt="다이아몬드 로고" /> HAEUN.L
+              &nbsp;
+              <span class="point-color"> PORTFOLIO </span>
+            </a>
+          </h1>
           <nav class="gnb en">
             <ul>
               <li><a href="#aboutTop" data-splitting>About</a></li>
@@ -44,19 +42,17 @@
               <li><a href="#contact_sec" data-splitting>Contact</a></li>
             </ul>
           </nav>
-          <a href="#" class="menu_open"
-            ><span class="a"></span><span class="b"></span
-          ></a>
+          <a href="#" class="menu_open"> <span>전체메뉴</span> </a>
         </div>
       </header>
       <div id="viewport" class="scroller viewport">
         <div id="container" class="container">
           <!-- Visual Sec -->
-          <section class="visual_sec animate" data-animate="motion">
+          <section class="visual_sec">
             <div class="inner">
               <div class="dim"></div>
               <div class="video_wrap">
-                <video autoplay muted loop playinline>
+                <video autoplay muted loop playsinline>
                   <source src="assets/img/video/work.mp4" type="video/mp4" />
                 </video>
               </div>
@@ -75,16 +71,14 @@
           </section>
           <div id="aboutTop"></div>
           <section class="about_sec" id="about_sec">
-            <div class="fix_txt en">
-              <h2>A hard, Beatiful Diamond</h2>
-            </div>
+            <strong class="fix_txt en">A hard, Beatiful Diamond </strong>
             <div class="inner">
               <div class="about_box about_box1">
                 <div class="desc_box">
                   <div class="wave_txt_box">
                     <p><span>단단하고 아름다운 보석처럼</span></p>
-                    <p><span>단단한 구조와 세심한 디테일로</span></p>
-                    <p><span>완성된, 보기에 좋은 코드를 작성하는</span></p>
+                    <p><span>단단한 구조와 세심한 디테일로 완성된, </span></p>
+                    <p><span>보기에 좋은 코드를 작성하는</span></p>
                     <p><span>2년 4개월차 웹퍼블리셔입니다.</span></p>
                   </div>
                 </div>
@@ -96,6 +90,8 @@
               </div>
 
               <div class="about_box about_box2">
+                <strong class="about2_fix_txt fix1">MY</strong>
+                <strong class="about2_fix_txt fix2">SKILL</strong>
                 <div class="desc_box">
                   <div class="wave_txt_box">
                     <p>
@@ -110,8 +106,8 @@
                       >
                     </p>
                     <p>
-                      <span
-                        >JavaScript와 jQuery를 활용한 동적 효과를 구현할 수
+                      <span>
+                        JavaScript와 jQuery를 활용한 동적 효과를 구현할 수
                         있으며,
                       </span>
                     </p>
@@ -125,67 +121,45 @@
                 <div class="visual_box">
                   <ul class="skill_logos flex-c-c flex-w">
                     <li>
-                      <img src="assets/img/logo_html5.svg" alt="HTML5" /><span
-                        class="hidden"
-                        >HTML5</span
-                      >
+                      <img src="assets/img/logo_html5.svg" alt="HTML5" />
                     </li>
-                    <li>
-                      <img src="assets/img/logo_css3.svg" alt="CSS3" /><span
-                        class="hidden"
-                        >CSS3</span
-                      >
-                    </li>
+                    <li><img src="assets/img/logo_css3.svg" alt="CSS3" /></li>
 
                     <li>
                       <img src="assets/img/logo_js.svg" alt="Javascript" />
-                      <span class="hidden">Javascript</span>
                     </li>
                     <li>
-                      <img src="assets/img/logo_jquery.svg" alt="JQuery" /><span
-                        class="hidden"
-                        >JQuery</span
-                      >
+                      <img src="assets/img/logo_jquery.svg" alt="JQuery" />
                     </li>
                     <li class="box">
                       <img
                         src="assets/img/logo_bootstrap.svg"
                         alt="Bootstrap"
                       />
-                      <span class="hidden"> Bootstrap </span>
                     </li>
                     <li>
                       <img
                         src="assets/img/logo_styled.svg"
                         alt="Styled-components"
                       />
-                      <span class="hidden"> Styled-components </span>
                     </li>
                     <li>
                       <img src="assets/img/logo_react.svg" alt="React" />
-                      <span class="hidden">React</span>
                     </li>
                     <li class="box">
-                      <img src="assets/img/logo_git.svg" alt="Git" /><span
-                        class="hidden"
-                        >Git</span
-                      >
+                      <img src="assets/img/logo_git.svg" alt="Git" />
                     </li>
                     <li>
                       <img src="assets/img/logo_ps.svg" alt="Photoshop" />
-                      <span class="hidden"> Photoshop </span>
                     </li>
                     <li>
                       <img src="assets/img/logo_ai.svg" alt="Illustrator" />
-                      <span class="hidden"> Illustrator </span>
                     </li>
                     <li class="box">
                       <img src="assets/img/logo_zeplin.svg" alt="Zeplin" />
-                      <span class="hidden"> Zeplin </span>
                     </li>
                     <li class="figma">
                       <img src="assets/img/logo_figma.svg" alt="Figma" />
-                      <span class="hidden">Figma</span>
                     </li>
                   </ul>
                 </div>
@@ -193,7 +167,7 @@
             </div>
           </section>
           <section class="project_intro_sec" id="project_intro_sec">
-            <div class="inner flex-b-c">
+            <div class="inner flex--c">
               <div class="sec_tit_box">
                 <h2 class="tit">
                   <div class="tit_change_box">
@@ -208,14 +182,11 @@
               </div>
               <div class="desc_box">
                 <p>
-                  견고한 마크업을 바탕으로, 디자인을 공감하고 기획에 맞는
-                  인터랙션을 구현하여 클라이언트와 사용자의 니즈를 충족시키는
-                  것에서 보람을 느낍니다. 기억에 남아 오래 사용하고 싶은,
-                  사용하기 편리한 사이트를 만드는것에 중점을 둡니다. 견고한
-                  마크업을 바탕으로, 디자인을 공감하고 기획에 맞는 인터랙션을
-                  구현하여 클라이언트와 사용자의 니즈를 충족시키는 것에서 보람을
-                  느낍니다. 기억에 남아 오래 사용하고 싶은, 사용하기 편리한
-                  사이트를 만드는것에 중점을 둡니다.
+                  기획과 디자인을 꼼꼼하게 파악하고 견고한 마크업을 바탕으로
+                  보기에 좋고 편리한 UI와 인터랙션을 구현합니다. 팀원간의
+                  피드백에 적극적으로 반응하며 활발한 의사소통을 통해 신속하고
+                  효율적으로 업무를 해냅니다. 새로운 스킬들을 습득하기를 즐기고
+                  문제해결하는 과정을 통해 한단계씩 성장해나가는것을 즐깁니다.
                 </p>
               </div>
             </div>
@@ -224,11 +195,14 @@
           <section class="project_list_sec">
             <div class="inner mw-1600">
               <h2 class="sound-only">대표 프로젝트</h2>
+              <div class="sec_tit_box">
+                <h2 class="tit">Main Project</h2>
+              </div>
               <ul class="project_list">
                 <li class="project_item posco">
                   <div class="img_box">
                     <a
-                      titㅣㄷ="포스코 채용사이트"
+                      title="포스코 채용사이트"
                       href="https://recruit.posco.com/h22a01-front/H22AMain.html"
                       target="_blank"
                       tabindex="-1"
@@ -256,17 +230,19 @@
                     <div class="desc_box">
                       <div class="desc">
                         <p>
-                          부분 리뉴얼로, 기존 코드에 영향을 주지 않는 선에서 PC
-                          웹은 태블릿 사이즈를 고려하여, 모바일 웹은 iOS와
-                          Android에서 동일한 인터페이스로 작업했습니다. 작업을
-                          통해 여러 도전적인 과제들을 해결하면서 성취감을
-                          느꼈고, 특히 기억에 남는 인터뷰 페이지 작업에서는
-                          데이터 로딩 과정에서 발생한 오류를 분석해 수정하는
-                          작업이 있었습니다. 또한, 두 개의 Swiper 슬라이드가
-                          상호 반응하도록 해야 하는 복잡한 로직을 포스코DX
-                          개발자와 협업하여 성공적으로 구현했습니다. 이
-                          프로젝트는 열정과 애정을 쏟아부은 값진 경험이
-                          되었습니다.
+                          채용 사이트 부분 리뉴얼로 기존의 폴더 구조와 코드들을
+                          분석하고 코드에 영향을 주지 않도록 작업을
+                          진행했습니다.
+                          <span class="only-web-inline">
+                            구글 라이트 하우스를 통하여 성능, 접근성, SEO 등
+                            100점에 가까워지도록 최적화를 진행하였고 다양한
+                            인터렉션에 많은 도전과 노력을 기울였습니다.</span
+                          >
+                          가장 노력을 기울인 페이지인 인터뷰 페이지 작업은 두
+                          개의 Swiper 슬라이드가 상호 반응하도록 해야 하는
+                          복잡한 로직을, 개발하기 편리하도록 구성하였고
+                          개발하면서 발생한 오류들을 포스코DX개발자 분들과 함께
+                          분석하고 해결하여 성공적으로 프로젝트를 완료했습니다.
                         </p>
                       </div>
                     </div>
@@ -298,7 +274,7 @@
                 <li class="project_item bigin">
                   <div class="img_box">
                     <a
-                      titㅣㄷ="보험정보 빅데이터 플랫폼"
+                      title="보험정보 빅데이터 플랫폼"
                       href="https://bigin.kidi.or.kr:9443/"
                       target="_blank"
                       tabindex="-1"
@@ -324,25 +300,20 @@
                   <div class="txt_box">
                     <div class="project_tit_box">
                       <h3 class="tit">보험정보 빅데이터 플랫폼</h3>
-                      <p class="tit_bot">반응형 웹 / WA 인증마크 획득</p>
+                      <p class="tit_bot">반응형 웹 / WA인증마크 취득</p>
                     </div>
                     <div class="desc_box">
                       <div class="desc">
                         <p>
-                          이 프로젝트는 첫 WA 인증마크를 획득한 작업으로, PM,
-                          기획자, 개발자와 긴밀하게 소통하며 진행했습니다.<br />
-                          SVN 기반의 JSP 환경에서 개발이 이루어졌고, 기존 개발
-                          방식이 Editor에 태그와 내용을 일괄적으로 삽입하는
-                          형식이었기에, Editor에서도 미리 보기가 가능하도록
-                          작업을 조정했습니다.<br />
-                          WA 인증 마크 취득 과정에서, Tab 키 순서 및 초점, img의
-                          alt 속성, button의 aria-label, 레이어 팝업의 초점
-                          이동과 Tab 키 순서 등 다양한 개선 사항을 도출해
-                          디자인, 개발, 퍼블리싱 팀이 각자 담당할 수 있도록
-                          Excel로 정리해 전달했습니다. 이후
-                          한국웹접근성인증평가원과 여러 차례 소통하고 자가
-                          검사를 통해 평균 준수율 100%를 달성하여 WA 인증마크를
-                          취득하는 성과를 얻었습니다.
+                          빅데이터 플랫폼 사이트 구축 프로젝트로 WA 인증마크를
+                          획득하고 SVN 기반의 JSP 작업환경을 경험해보는
+                          프로젝트였습니다. WA인증마크 취득 과정에서 다양한 개선
+                          사항을 Excel에 정리하여 디자인, 개발, 퍼블리싱 팀별로
+                          전달하였고 Tab키 순서 및 초점, img의 alt 속성,
+                          button의 aria-label, 레이어 팝업의 초점 이동 등
+                          문제해결을 위해 검색, 자가 검사,
+                          한국웹접근성인증평가원에 자문하여 평균 준수율 100%,
+                          WA인증마크를 취득하는 성과를 얻었습니다.
                         </p>
                       </div>
                     </div>
@@ -359,9 +330,7 @@
                       <li>
                         <span>#<!-- -->Javascript</span>
                       </li>
-                      <li>
-                        <span>#<!-- -->JQuery</span>
-                      </li>
+
                       <li>
                         <span>#<!-- -->WA인증마크</span>
                       </li>
@@ -371,7 +340,7 @@
                 <li class="project_item tacenol">
                   <div class="img_box">
                     <a
-                      titㅣㄷ="부광약품 타세놀"
+                      title="부광약품 타세놀"
                       href="http://tacenol.co.kr/"
                       target="_blank"
                       tabindex="-1"
@@ -396,10 +365,11 @@
                     <div class="desc_box">
                       <div class="desc">
                         <p>
+                          국민 진통제 타세놀의 정보를 담은 랜딩 페이지로 Popup,
                           Swiper 슬라이드 커스텀, 호버 효과, 스크롤에 따른
-                          애니메이션, 클릭 이벤트 등 다양한 인터랙션을 구현하며
-                          작업에 재미를 느꼈으며 각 요소를 유기적으로 결합해
-                          사용자 경험을 강화하는 데 주력했습니다.
+                          애니메이션, 클릭 이벤트 등 다양한 인터랙션을 구현하고
+                          각 요소를 유기적으로 결합해 사용자 경험을 강화하는 데
+                          주력했습니다.
                         </p>
                       </div>
                     </div>
@@ -419,10 +389,10 @@
                     </ul>
                   </div>
                 </li>
-                <li class="project_item">
-                  <div class="img_box tacenol">
+                <li class="project_item gtec">
+                  <div class="img_box">
                     <a
-                      titㅣㄷ="경기과학기술대학교"
+                      title="경기과학기술대학교"
                       href="https://www.gtec.ac.kr/landing/13/index.html"
                       target="_blank"
                       tabindex="-1"
@@ -449,12 +419,12 @@
                         <p>
                           21개 학과의 랜딩 페이지를 작업한 프로젝트로, 동일한
                           틀을 사용하되 학과별로 각기 다른 콘텐츠를 적용하는
-                          방식으로 진행했습니다. 탭, 컨텐츠 갯수가 고정적인
-                          너비를 가지지 않으면서 깨지지않는 레이아웃을
-                          유지하게끔 코드를 작성하였고 사회학과 페이지를 먼저
-                          작업해 소스를 공유했고, 동료들과 협업하여 나머지 학과
-                          페이지들도 빠르게 완성했습니다. 빠듯한 일정 속에서
-                          효율적으로 작업했던 기억이 인상 깊습니다.
+                          방식으로 진행했습니다. 탭, 컨텐츠 갯수가 달라도
+                          깨지지않는 레이아웃을 유지하게끔 가변적인 너비와
+                          높이를 갖도록 코드를 작성하였고 빠듯한 일정으로 인해
+                          한 학과 페이지를 먼저 작업해 소스를 공유하여
+                          동료들과의 협업으로 21개의 랜딩페이지를 기간안에
+                          완성했습니다.
                         </p>
                       </div>
                     </div>
@@ -471,13 +441,16 @@
                       <li>
                         <span>#<!-- -->SWIPER</span>
                       </li>
+                      <li>
+                        <span>#<!-- -->Javascript</span>
+                      </li>
                     </ul>
                   </div>
                 </li>
-                <li class="project_item">
-                  <div class="img_box uAndI">
+                <li class="project_item uAndI">
+                  <div class="img_box">
                     <a
-                      titㅣㄷ="유앤아이피부과(에약페이지)"
+                      title="유앤아이피부과(에약페이지)"
                       href="https://www.uni114.co.kr/reservation/select_surgery.php"
                       target="_blank"
                       tabindex="-1"
@@ -504,9 +477,9 @@
                         <p>
                           성형외과 사이트의 추가 페이지 퍼블리싱 작업으로
                           PHP환경으로 작업되어있는 전체 페이지를 분석하고 구조에
-                          맞춰 마크업, CSs를 작성하고 Date-Picker, Select, Input
-                          등을 이용한 클릭 이벤트와, Popup 인터렉션을 추가하여
-                          퍼블리싱 하였습니다.
+                          맞춰 마크업, CSS를 작성하고 Date-Picker, Select,
+                          Input, button 등을 이용한 클릭 이벤트와, Popup
+                          인터렉션을 추가하여 퍼블리싱 했습니다.
                         </p>
                       </div>
                     </div>
@@ -536,22 +509,60 @@
             <div class="inner mw-1800">
               <h2 class="sound-only">그 외 프로젝트</h2>
               <div class="sec_tit_box">
-                <h2 class="tit">~ 2024</h2>
+                <h2 class="tit">Sub Project</h2>
               </div>
               <ul class="sub_project_list">
                 <li class="sub_pj_item">
                   <a
+                    href="http://biodiv.uwaldev.com/AdmMaster/"
+                    target="_blank"
+                    title="biodiv"
+                    ><div class="sub_pj_item_num"><span>01</span></div>
+                    <h3 class="sub_pj_item_tit">비오디브-관리자</h3>
+                    <div class="sub_pj_item_txt_box">
+                      <p class="sub_pj_item_desc">
+                        비오디브 관리자 페이지 구축 프로젝트로 React를 사용하여
+                        Components 작업, Bootstrap 탬플릿의 Scss를 커스터마이징
+                        하여 작업했습니다. (사용중인 페이지는 로그인 할 수 없어
+                        서브 서버에 업로드 되어있는 링크를 첨부하였습니다)
+                      </p>
+                      <ul class="sub_pj_tag">
+                        <li class="sub_pj_tag_item">
+                          <span class="sub_pj_tag-text"
+                            >#<!-- -->퍼블리싱 100%</span
+                          >
+                        </li>
+                        <li class="sub_pj_tag_item">
+                          <span class="sub_pj_tag-text">#<!-- -->React</span>
+                        </li>
+                        <li class="sub_pj_tag_item">
+                          <span class="sub_pj_tag-text"
+                            >#<!-- -->Javascript</span
+                          >
+                        </li>
+                        <li class="sub_pj_tag_item">
+                          <span class="sub_pj_tag-text">#<!-- -->CSS</span>
+                        </li>
+                        <li class="sub_pj_tag_item">
+                          <span class="sub_pj_tag-text">#<!-- -->반응형</span>
+                        </li>
+                      </ul>
+                    </div></a
+                  >
+                </li>
+                <li class="sub_pj_item">
+                  <a
                     href="https://zinad1.cafe24.com/main/main.php"
                     target="_blank"
-                    tit="RebitX"
-                    ><div class="sub_pj_item_num">(01)</div>
+                    title="ZIN AD"
+                    ><div class="sub_pj_item_num"><span>02</span></div>
                     <h3 class="sub_pj_item_tit">ZIN AD</h3>
-                    <div class="sub_pj_item_txt_container">
+                    <div class="sub_pj_item_txt_box">
                       <p class="sub_pj_item_desc">
                         라이브커머스 전문 제작사 웹사이트 구축 프로젝트로 PHP
                         include를 사용하여 공통 영역을 세팅하였고 시맨틱 마크업,
                         크로스 브라우징, counter.js, swiper-slide 커스터마이징
-                        등의 퍼블리싱을 진행하였습니다.
+                        등의 퍼블리싱을 진행했습니다.
                       </p>
                       <ul class="sub_pj_tag">
                         <li class="sub_pj_tag_item">
@@ -582,15 +593,15 @@
                   <a
                     href="http://www.ril.co.kr/main/main.php"
                     target="_blank"
-                    tit="렉스국제운송"
-                    ><div class="sub_pj_item_num">(02)</div>
+                    title="렉스국제운송"
+                    ><div class="sub_pj_item_num"><span>03</span></div>
                     <h3 class="sub_pj_item_tit">렉스국제운송</h3>
-                    <div class="sub_pj_item_txt_container">
+                    <div class="sub_pj_item_txt_box">
                       <p class="sub_pj_item_desc">
                         항공,해상 국제물류주선업 웹사이트 구축 프로젝트로 PHP
                         include를 사용하여 공통 영역을 세팅하였고 시맨틱 마크업,
                         크로스 브라우징, SVG, swiper-slide 커스터마이징 , 다양한
-                        호버 효과 등의 퍼블리싱을 진행하였습니다.
+                        호버 효과 등의 퍼블리싱을 진행했습니다.
                       </p>
                       <ul class="sub_pj_tag">
                         <li class="sub_pj_tag_item">
@@ -619,15 +630,15 @@
                   <a
                     href="http://youngbio.kr/main/main.php"
                     target="_blank"
-                    tit="Younbio"
-                    ><div class="sub_pj_item_num">(03)</div>
+                    title="Younbio"
+                    ><div class="sub_pj_item_num"><span>04</span></div>
                     <h3 class="sub_pj_item_tit">Younbio</h3>
-                    <div class="sub_pj_item_txt_container">
+                    <div class="sub_pj_item_txt_box">
                       <p class="sub_pj_item_desc">
                         산업분야의 의약, 생명과학 발전 유통 전문회사 웹사이트
                         구축 프로젝트로 PHP include를 사용하여 공통 영역을
-                        세팅하였고 시맨틱 마크업, 크로스 브라우징, 3 depth의 Tab
-                        작업 등의 퍼블리싱을 진행하였습니다.
+                        세팅하였고 시맨틱 마크업, 크로스 브라우징, 3depth의 Tab
+                        작업 등의 퍼블리싱을 진행했습니다.
                       </p>
                       <ul class="sub_pj_tag">
                         <li class="sub_pj_tag_item">
@@ -656,14 +667,14 @@
                   <a
                     href="https://www.crossyeonae.com/"
                     target="_blank"
-                    tit="크로스연애"
-                    ><div class="sub_pj_item_num">(05)</div>
+                    title="크로스연애"
+                    ><div class="sub_pj_item_num"><span>05</span></div>
                     <h3 class="sub_pj_item_tit">크로스연애 - 메인</h3>
-                    <div class="sub_pj_item_txt_container">
+                    <div class="sub_pj_item_txt_box">
                       <p class="sub_pj_item_desc">
                         카카오톡 프라이빗 소개팅 웹사이트 메인페이지 리뉴얼
                         프로젝트로 PHP 기반 그누보드 솔루션을 커스텀하여
-                        퍼블리싱하였습니다.
+                        퍼블리싱을 진행했습니다.
                       </p>
                       <ul class="sub_pj_tag">
                         <li class="sub_pj_tag_item">

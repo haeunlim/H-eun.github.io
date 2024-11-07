@@ -39,7 +39,7 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.4;
+  line-height: inherit;
 }
 
 button {
@@ -164,6 +164,11 @@ strong,
 @media (max-width: 990px) {
   .pc-only {
     display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .only-web-inline {
+    display: none;
   }
 }
 
@@ -729,10 +734,6 @@ strong,
 
 .only-mo-inline {
   display: none !important;
-}
-
-.only-web-inline {
-  display: inline-block !important;
 }
 
 .only-web-flex {

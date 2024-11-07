@@ -1,33 +1,15 @@
 // 스플리팅 호출
 $(document).ready(function () {
+  // splitting
+  Splitting();
+
+  // gsap
   window.addEventListener("resize", () => {
     ScrollTrigger.refresh();
   });
-
   gsap.registerPlugin(ScrollTrigger);
 
-  loadingHide();
-  headerScrollActive();
-  scroller();
-  gnbScrollAnimation();
-  visualMotionOn();
-  visualAnimation();
-  aboutAnimation();
-  projectIntroAnimation();
-  projectAnimation();
-  subProjectAnimation();
-  togetherAnimation();
-  typedAnimation();
-
-  ScrollTrigger.refresh();
-  ScrollTrigger.config({
-    ignoreMobileResize: true,
-  });
-
-  mobileGnbOpen();
-});
-
-function scroller() {
+  // scoller
   const scroller = document.querySelector(".scroller");
 
   let bodyScrollBar = Scrollbar.init(scroller, {
@@ -59,23 +41,26 @@ function scroller() {
   bodyScrollBar.addListener(ScrollTrigger.update);
   ScrollTrigger.defaults({ scroller: scroller });
 
+  // gnb click event
   document.querySelectorAll(".gnb a").forEach((link) => {
     link.addEventListener("click", (event) => {
-      event.preventDefault(); // 기본 링크 이동 방지
+      event.preventDefault();
 
       const targetId = link.getAttribute("href"); // 링크의 href 속성에서 타겟 섹션 ID 가져오기
       const targetSection = document.querySelector(targetId); // 해당 섹션 요소 선택
-
+      if (window.innerWidth < 769) {
+        $("body").removeClass("gnbOpen");
+      }
       if (targetSection) {
         gsap.to(bodyScrollBar, {
-          duration: 1, // 스크롤 이동 시간 (1초)
-          scrollTo: targetSection.offsetTop, // 이동할 대상 섹션
-          ease: "power2.out", // 부드러운 애니메이션을 위한 easing 적용
+          duration: 1,
+          scrollTo: targetSection.offsetTop,
+          ease: "power2.out",
         });
       }
     });
   });
-
+  // header active
   let prevScrollTop = 0;
   bodyScrollBar.addListener(() => {
     let nowScrollTop = bodyScrollBar.scrollTop;
@@ -92,69 +77,24 @@ function scroller() {
     } else {
       $(".header").removeClass("scroll");
     }
-
-    // let winH = $(window).height() / 3;
-    // const proejectIntroSecTop = $(".project_intro_sec").offset().top;
-    // if (nowScrollTop + winH >= proejectIntroSecTop) {
-    //   $(".project_intro_sec").addClass("move");
-    // } else {
-    //   $(".project_intro_sec").removeClass("move");
-    // }
   });
-}
 
-function loadingHide() {
-  setTimeout(function () {
-    $("#loading").addClass("hide");
-  }, 1000);
-}
-function headerScrollActive() {}
-
-function mobileGnbOpen() {
   $(".menu_open").on("click", function () {
-    $(".gnb").toggleClass("on");
-    $(this).toggleClass("on");
-    $("body").toggleClass("on");
+    if ($("body").hasClass("gnbOpen")) {
+      $("body").removeClass("gnbOpen");
+    } else {
+      $("body").addClass("gnbOpen");
+    }
   });
-}
-function typedAnimation() {
-  let typetext = new Typed(".typed", {
-    strings: [
-      "amazing",
-      "awesome",
-      "different",
-      "special",
-      "fabulous",
-      "stunning",
-      "brilliant",
-      "fantastic",
-      "impressive",
-      "incredible",
-    ],
-    typeSpeed: 50,
-    backSpeed: 50,
-    loop: true,
-  });
-}
-function visualMotionOn() {
-  setTimeout(() => {
-    $(".visual_sec ").addClass("motion");
-  }, 1000);
-}
-function gnbScrollAnimation() {}
-function visualAnimation() {
-  const section = document.querySelector(".visual_sec");
-  const wrap = document.querySelector(".wrap");
-  const header = document.querySelector(".header");
-  const DOM = {
-    video: section.querySelector("video"),
-    dim: section.querySelector(".dim"),
-  };
+
+  const viewport = document.querySelector(".viewport");
+  // visual animation
+  const visualSection = document.querySelector(".visual_sec");
   //visualVideo;
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: section, //트리거 대상
+        trigger: visualSection, //트리거 대상
         start: "bottom 20%", //트리거 대상의 0%와 브라우저의 80%가 만날때 애니메이션이 시작됨.
         end: "bottom top",
         scrub: 2, //gsap scrollTrigger 의 이벤트는 스크롤이 사용될 때만 재생되도록 만들어주는 속성
@@ -169,31 +109,18 @@ function visualAnimation() {
     })
     .to(".scroll", { opacity: "0", ease: "none" }, 0)
     .fromTo(
-      section,
+      visualSection,
       { "clip-path": "inset(0% 0% 0% 0% round 0%)" },
       { "clip-path": "inset(60% 60% 60% 60% round 30%)" },
       0
     )
-    // .to(
-    //   header,
-    //   {
-    //     opacity: 1,
-    //     backgroundColor: "#fff",
-    //     borderBottom: "1px solid #eee",
-    //     color: "#111",
-    //     duration: 0.1,
-    //   },
-    //   0
-    // )
     .fromTo(
-      wrap,
+      viewport,
       { backgroundColor: "#080808" },
       { backgroundColor: "#fff", duration: 0.1 },
       0
     );
-}
-
-function aboutAnimation() {
+  // about Animation
   // 3D MOTION - DIAMOND
   const diamond3d_canvas = document.getElementById("diamond");
   const diamond3d_context = diamond3d_canvas.getContext("2d");
@@ -230,32 +157,33 @@ function aboutAnimation() {
     );
   }
 
-  const section = document.querySelector(".about_sec");
+  const aboutSection = document.querySelector(".about_sec");
   const DOM = {
-    fixTxt: section.querySelector(".fix_txt"),
-    box1: section.querySelectorAll(".about_box1 .wave_txt_box"),
-    txt1: section.querySelectorAll(".about_box1 .wave_txt_box span"),
-    box2: section.querySelectorAll(".about_box2 .wave_txt_box"),
-    txt2: section.querySelectorAll(".about_box2 .wave_txt_box span"),
-    diamond: section.querySelector(".diamond_wrap"),
-    skills: section.querySelectorAll(".skill_logos li"),
+    fixTxt: aboutSection.querySelector(".fix_txt"),
+    about2Fix1: aboutSection.querySelectorAll(".about2_fix_txt.fix1"),
+    about2Fix2: aboutSection.querySelectorAll(".about2_fix_txt.fix2"),
+    box1: aboutSection.querySelectorAll(".about_box1 .wave_txt_box"),
+    txt1: aboutSection.querySelectorAll(".about_box1 .wave_txt_box span"),
+    box2: aboutSection.querySelectorAll(".about_box2 .wave_txt_box"),
+    txt2: aboutSection.querySelectorAll(".about_box2 .wave_txt_box span"),
+    diamond: aboutSection.querySelector(".diamond_wrap"),
+    skills: aboutSection.querySelectorAll(".skill_logos li"),
   };
 
   // const yPercent_vh = (coef) => window.innerHeight * (coef / 100);
   const fixTxtWidth = DOM.fixTxt.clientWidth + window.innerWidth;
-  console.log(fixTxtWidth);
 
   ScrollTrigger.matchMedia({
     "(min-width: 769px)": function () {
-      let tl1 = gsap
+      let aboutTl1 = gsap
         .timeline({
           scrollTrigger: {
             scrub: 3,
-            trigger: section,
+            trigger: aboutSection,
             start: "top 30%",
             ease: "power4.in",
             onUpdate: function () {
-              const progress = tl1.progress(); // 0 ~ 1
+              const progress = aboutTl1.progress(); // 0 ~ 1
               diamond3d_clubbys.frame = Math.floor(
                 progress * diamond3d_frameCount
               );
@@ -286,19 +214,19 @@ function aboutAnimation() {
           },
           "<"
         )
-        .to(DOM.fixTxt, { opacity: 0.3 }, 0.4);
+        .to(DOM.fixTxt, { opacity: 1 }, 0.4);
     },
 
     "(max-width: 768px)": function () {
-      let tlMo1 = gsap
+      let aboutTlMo1 = gsap
         .timeline({
           scrollTrigger: {
             scrub: 3,
-            trigger: section,
+            trigger: aboutSection,
             start: "top 30%",
             ease: "power4.in",
             onUpdate: function () {
-              const progress = tlMo1.progress(); // 0 ~ 1
+              const progress = aboutTlMo1.progress(); // 0 ~ 1
               diamond3d_clubbys.frame = Math.floor(
                 progress * diamond3d_frameCount
               );
@@ -316,7 +244,7 @@ function aboutAnimation() {
           keyframes: {
             "0%": { scale: 2, y: "-50%", opacity: 0, ease: "power2.out" },
             "30%": { scale: 1, opacity: 1, ease: "power2.out" },
-            "50%": { y: 0, ease: "power2.inOut" }, // 부드러운 이징
+            "50%": { y: 0, ease: "power2.inOut" },
             "70%": { ease: "power2.inOut" },
           },
           duration: 5,
@@ -333,17 +261,17 @@ function aboutAnimation() {
     },
   });
 
-  let tl2 = gsap.timeline({
+  let aboutTl2 = gsap.timeline({
     scrollTrigger: {
       scrub: 3,
-      trigger: section,
+      trigger: aboutSection,
       pin: true,
       pinSpacing: true,
       start: "top top",
       ease: "power4.out",
       end: "+=250%",
       onUpdate: function () {
-        const progress = tl2.progress(); // 0 ~ 1
+        const progress = aboutTl2.progress(); // 0 ~ 1
         diamond3d_clubbys.frame = Math.floor(progress * diamond3d_frameCount);
 
         // 프레임을 0 ~ 89 사이로 유지하여 반복
@@ -354,14 +282,7 @@ function aboutAnimation() {
     },
   });
 
-  tl2
-    // .to(diamond3d_clubbys, {
-    //   frame: diamond3d_frameCount - 1,
-    //   snap: "frame",
-    //   paused: false,
-    //   ease: "power2.out",
-    //   // onUpdate: diamond3d_render,
-    // })
+  aboutTl2
     .fromTo(
       DOM.txt1,
       {
@@ -387,6 +308,7 @@ function aboutAnimation() {
       delay: 3,
       duration: 3,
     })
+
     .fromTo(
       DOM.txt2,
       {
@@ -405,6 +327,7 @@ function aboutAnimation() {
       },
       "-=0.5"
     )
+
     .fromTo(
       DOM.diamond,
       {
@@ -417,6 +340,18 @@ function aboutAnimation() {
       "<"
     )
     .fromTo(
+      DOM.about2Fix1,
+      { x: "-100%", opacity: 0 },
+      { x: "0%", opacity: 1, ease: "none", duration: 5 },
+      "<"
+    )
+    .fromTo(
+      DOM.about2Fix2,
+      { x: "100%", opacity: 0 },
+      { x: "0%", opacity: 1, ease: "none", duration: 5 },
+      "<"
+    )
+    .fromTo(
       DOM.skills,
       {
         opacity: 0,
@@ -425,26 +360,20 @@ function aboutAnimation() {
       {
         opacity: 1,
         scale: 1,
-        transformOrigin: "50% 50%",
-        duration: 2,
+        duration: 1,
         stagger: {
           each: 0.5,
         },
       }
     );
-}
 
-function projectIntroAnimation() {
-  const section = document.querySelector(".project_intro_sec");
-  const listSection = document.querySelector(".project_list_sec");
-  const wrap = document.querySelector(".wrap");
-  const header = document.querySelector(".header");
-  // project bg text color
+  // project Intro Animation
+  const ProjectIntroSection = document.querySelector(".project_intro_sec");
 
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: section,
+        trigger: ProjectIntroSection,
         scrub: 1,
         ease: "none",
         duration: 1,
@@ -460,33 +389,11 @@ function projectIntroAnimation() {
         },
       },
     })
-    .to(wrap, { backgroundColor: "#111", color: "#fff" });
-  // .to(section, { color: "#fff" }, "<")
-  // .to(listSection, { color: "#fff" }, "<");
-  // .to(
-  //   header,
-  //   {
-  //     opacity: 1,
-  //     backgroundColor: "transparent",
-  //     borderBottom: "1px solid #fff2",
-  //     color: "#fff",
-  //     duration: 0.5,
-  //   },
-  //   0
-  // );
-}
-
-function projectAnimation() {
-  // project item
+    .to(viewport, { backgroundColor: "#080808", color: "#fff" });
+  // project item Animation
   const projectItems = gsap.utils.toArray(".project_list .project_item");
   projectItems.forEach((item, index) => {
     const img = item.querySelector(".img_box a> img");
-
-    // 이미지 로드 이벤트 리스너 추가
-    img.addEventListener("load", () => {
-      // 이미지가 로드되면 ScrollTrigger를 새로고침하여 정확한 위치를 계산
-      ScrollTrigger.refresh();
-    });
 
     ScrollTrigger.matchMedia({
       "(min-width: 769px)": function () {
@@ -511,7 +418,7 @@ function projectAnimation() {
             item,
             {
               yPercent: 0,
-              duration: 0.1,
+              duration: 2,
             },
             0
           )
@@ -519,9 +426,42 @@ function projectAnimation() {
             img,
             {
               scale: 0.95,
-              duration: 0.5,
-              scrub: 1,
-              ease: "power2.out",
+              duration: 2,
+            },
+            0
+          );
+      },
+      "(max-width: 950px)": function () {
+        gsap.set(item, {
+          yPercent: 3,
+        });
+        gsap.set(img, {
+          scale: 1,
+        });
+        let projectItemTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            scrub: 2,
+            start: "top 80%",
+            end: "bottom bottom",
+            ease: "power2.out",
+            invalidateOnRefresh: true,
+          },
+        });
+        projectItemTl
+          .to(
+            item,
+            {
+              yPercent: 0,
+              duration: 2,
+            },
+            0
+          )
+          .to(
+            img,
+            {
+              scale: 0.95,
+              duration: 2,
             },
             0
           );
@@ -556,17 +496,15 @@ function projectAnimation() {
       },
     });
   });
-}
 
-function subProjectAnimation() {
-  // project item
-  const section = document.querySelector(".sub_project");
-  const items = gsap.utils.toArray(".sub_pj_item a");
+  // other section Animatnion
+  const otherSection = document.querySelector(".other_project");
+  const otherItem = gsap.utils.toArray(".other_pj_item a");
 
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: section,
+        trigger: otherSection,
         scrub: 1,
         start: "top 80%",
         end: "top 60%",
@@ -574,21 +512,12 @@ function subProjectAnimation() {
         invalidateOnRefresh: true,
       },
     })
-    .to(".wrap", { duration: 0.2, backgroundColor: "#000e35" });
+    .to(".viewport", { duration: 0.2, backgroundColor: "#000e35" });
 
-  items.forEach((item, index) => {
-    const imgs = document.querySelector(
-      ".project_list .project_item .img_box a > img"
-    );
-    // 이미지 로드 이벤트 리스너 추가
-    imgs.addEventListener("load", () => {
-      // 이미지가 로드되면 ScrollTrigger를 새로고침하여 정확한 위치를 계산
-      ScrollTrigger.refresh();
-    });
-
+  otherItem.forEach((item, index) => {
     ScrollTrigger.matchMedia({
       "(min-width: 769px)": function () {
-        let tl = gsap.timeline({
+        let otherTl = gsap.timeline({
           scrollTrigger: {
             trigger: item,
             scrub: 2,
@@ -598,13 +527,13 @@ function subProjectAnimation() {
             invalidateOnRefresh: true,
           },
         });
-        tl.to(item, {
+        otherTl.to(item, {
           paddingTop: "3rem",
           paddingBottom: "3rem",
         });
       },
       "(max-width: 768px)": function () {
-        let tlMo = gsap.timeline({
+        let otherTlMo = gsap.timeline({
           scrollTrigger: {
             trigger: item,
             scrub: 2,
@@ -614,27 +543,20 @@ function subProjectAnimation() {
             invalidateOnRefresh: true,
           },
         });
-        tlMo.to(item, {
+        otherTlMo.to(item, {
           paddingTop: "2rem",
           paddingBottom: "2rem",
         });
       },
     });
   });
-}
 
-function togetherAnimation() {
-  const section = document.querySelector(".together");
-  const imgs = document.querySelector(".project_list .project_item img");
-  // 이미지 로드 이벤트 리스너 추가
-  imgs.addEventListener("load", () => {
-    // 이미지가 로드되면 ScrollTrigger를 새로고침하여 정확한 위치를 계산
-    ScrollTrigger.refresh();
-  });
+  // together Animation
+  const togetherSection = document.querySelector(".together");
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: section,
+        trigger: togetherSection,
         scrub: 1,
         start: "top 80%",
         end: "top 60%",
@@ -648,5 +570,61 @@ function togetherAnimation() {
         },
       },
     })
-    .to(".wrap", { duration: 0.2, backgroundColor: "#dbefff", color: "#111" });
-}
+    .to(viewport, {
+      duration: 0.2,
+      backgroundColor: "#dbefff",
+      color: "#111",
+    });
+
+  let allImages = $("img");
+  let totalImages = allImages.length;
+  let loadedImages = 0;
+
+  allImages.each(function () {
+    // 이미지가 로드될 때마다 카운트 증가
+    $(this)
+      .on("load", function () {
+        $("#loading").addClass("hide");
+        $(".visual_sec ").addClass("motion");
+        loadedImages++;
+        if (loadedImages === totalImages) {
+          // 모든 이미지가 로드되면 gsap.refresh() 실행
+          ScrollTrigger.refresh();
+        }
+      })
+      .on("error", function () {
+        // 에러 핸들링 (이미지 로드 실패 시에도 카운트 증가)
+        loadedImages++;
+        if (loadedImages === totalImages) {
+          ScrollTrigger.refresh();
+        }
+      });
+
+    // 캐시된 이미지도 로드 완료 이벤트 발생시키기 위한 트릭
+    if (this.complete) $(this).trigger("load");
+  });
+
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+  });
+
+  // together tyed
+  let typetext = new Typed(".typed", {
+    strings: [
+      "amazing",
+      "awesome",
+      "different",
+      "special",
+      "fabulous",
+      "stunning",
+      "brilliant",
+      "fantastic",
+      "impressive",
+      "incredible",
+    ],
+    typeSpeed: 50,
+    backSpeed: 50,
+    loop: true,
+  });
+});
+window.onload = function () {};
