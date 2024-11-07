@@ -168,4 +168,7 @@ footer .my_info li:not(.copy_right) {
   .gnb {
     display: none;
   }
+  header .menu_open {
+    display: block;
+  }
 }

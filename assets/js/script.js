@@ -94,8 +94,8 @@ function scroller() {
     }
 
     // let winH = $(window).height() / 3;
-    // const proejctIntroSecTop = $(".project_intro_sec").offset().top;
-    // if (nowScrollTop + winH >= proejctIntroSecTop) {
+    // const proejectIntroSecTop = $(".project_intro_sec").offset().top;
+    // if (nowScrollTop + winH >= proejectIntroSecTop) {
     //   $(".project_intro_sec").addClass("move");
     // } else {
     //   $(".project_intro_sec").removeClass("move");
@@ -244,46 +244,96 @@ function aboutAnimation() {
   // const yPercent_vh = (coef) => window.innerHeight * (coef / 100);
   const fixTxtWidth = DOM.fixTxt.clientWidth + window.innerWidth;
   console.log(fixTxtWidth);
-  let abouttl1 = gsap
-    .timeline({
-      scrollTrigger: {
-        scrub: 3,
-        trigger: section,
-        start: "top 30%",
-        ease: "power4.in",
-        onUpdate: function () {
-          const progress = abouttl1.progress(); // 0 ~ 1
-          diamond3d_clubbys.frame = Math.floor(progress * diamond3d_frameCount);
 
-          // 프레임을 0 ~ 89 사이로 유지하여 반복
-          diamond3d_clubbys.frame =
-            diamond3d_clubbys.frame % diamond3d_frameCount;
-          diamond3d_render();
-        },
-      },
-    })
-    .set(DOM.diamond, { autoAlpha: 1 })
-    .to(DOM.diamond, {
-      transformOrigin: "50% 50%",
-      keyframes: {
-        "0%": { scale: 2, opacity: 0, ease: "power2.out" },
-        "30%": { scale: 1, opacity: 1, ease: "power2.out" },
-        "50%": { x: 0, y: 0, ease: "power2.inOut" }, // 부드러운 이징
-        "70%": { y: 0, x: "60%", ease: "power2.inOut" },
-      },
-      duration: 5,
-    })
-    .to(
-      DOM.fixTxt,
-      {
-        x: -fixTxtWidth,
-        duration: 3,
-      },
-      "<"
-    )
-    .to(DOM.fixTxt, { opacity: 0.3 }, 0.4);
+  ScrollTrigger.matchMedia({
+    "(min-width: 769px)": function () {
+      let tl1 = gsap
+        .timeline({
+          scrollTrigger: {
+            scrub: 3,
+            trigger: section,
+            start: "top 30%",
+            ease: "power4.in",
+            onUpdate: function () {
+              const progress = tl1.progress(); // 0 ~ 1
+              diamond3d_clubbys.frame = Math.floor(
+                progress * diamond3d_frameCount
+              );
 
-  let aboutSecTl = gsap.timeline({
+              // 프레임을 0 ~ 89 사이로 유지하여 반복
+              diamond3d_clubbys.frame =
+                diamond3d_clubbys.frame % diamond3d_frameCount;
+              diamond3d_render();
+            },
+          },
+        })
+        .set(DOM.diamond, { autoAlpha: 1 })
+        .to(DOM.diamond, {
+          transformOrigin: "50% 50%",
+          keyframes: {
+            "0%": { scale: 2, opacity: 0, ease: "power2.out" },
+            "30%": { scale: 1, opacity: 1, ease: "power2.out" },
+            "50%": { x: 0, y: 0, ease: "power2.inOut" }, // 부드러운 이징
+            "70%": { y: 0, x: "60%", ease: "power2.inOut" },
+          },
+          duration: 5,
+        })
+        .to(
+          DOM.fixTxt,
+          {
+            x: -fixTxtWidth,
+            duration: 3,
+          },
+          "<"
+        )
+        .to(DOM.fixTxt, { opacity: 0.3 }, 0.4);
+    },
+
+    "(max-width: 768px)": function () {
+      let tlMo1 = gsap
+        .timeline({
+          scrollTrigger: {
+            scrub: 3,
+            trigger: section,
+            start: "top 30%",
+            ease: "power4.in",
+            onUpdate: function () {
+              const progress = tlMo1.progress(); // 0 ~ 1
+              diamond3d_clubbys.frame = Math.floor(
+                progress * diamond3d_frameCount
+              );
+
+              // 프레임을 0 ~ 89 사이로 유지하여 반복
+              diamond3d_clubbys.frame =
+                diamond3d_clubbys.frame % diamond3d_frameCount;
+              diamond3d_render();
+            },
+          },
+        })
+        .set(DOM.diamond, { autoAlpha: 1 })
+        .to(DOM.diamond, {
+          transformOrigin: "50% 50%",
+          keyframes: {
+            "0%": { scale: 2, y: "-50%", opacity: 0, ease: "power2.out" },
+            "30%": { scale: 1, opacity: 1, ease: "power2.out" },
+            "50%": { y: 0, ease: "power2.inOut" }, // 부드러운 이징
+            "70%": { ease: "power2.inOut" },
+          },
+          duration: 5,
+        })
+        .to(
+          DOM.fixTxt,
+          {
+            x: -fixTxtWidth,
+            duration: 3,
+          },
+          "<"
+        )
+        .to(DOM.fixTxt, { opacity: 0.3 }, 0.4);
+    },
+  });
+
+  let tl2 = gsap.timeline({
     scrollTrigger: {
       scrub: 3,
       trigger: section,
@@ -293,7 +343,7 @@ function aboutAnimation() {
       ease: "power4.out",
       end: "+=250%",
       onUpdate: function () {
-        const progress = aboutSecTl.progress(); // 0 ~ 1
+        const progress = tl2.progress(); // 0 ~ 1
         diamond3d_clubbys.frame = Math.floor(progress * diamond3d_frameCount);
 
         // 프레임을 0 ~ 89 사이로 유지하여 반복
@@ -304,7 +354,7 @@ function aboutAnimation() {
     },
   });
 
-  aboutSecTl
+  tl2
     // .to(diamond3d_clubbys, {
     //   frame: diamond3d_frameCount - 1,
     //   snap: "frame",
@@ -312,7 +362,6 @@ function aboutAnimation() {
     //   ease: "power2.out",
     //   // onUpdate: diamond3d_render,
     // })
-
     .fromTo(
       DOM.txt1,
       {
@@ -426,11 +475,12 @@ function projectIntroAnimation() {
   //   0
   // );
 }
+
 function projectAnimation() {
   // project item
   const projectItems = gsap.utils.toArray(".project_list .project_item");
   projectItems.forEach((item, index) => {
-    const img = item.querySelector(".img_box img");
+    const img = item.querySelector(".img_box a> img");
 
     // 이미지 로드 이벤트 리스너 추가
     img.addEventListener("load", () => {
@@ -438,41 +488,73 @@ function projectAnimation() {
       ScrollTrigger.refresh();
     });
 
-    gsap.set(item, {
-      yPercent: 10,
-    });
-    gsap.set(img, {
-      scale: 1,
-    });
-    let projectItemTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: item,
-        scrub: 2,
-        start: "top 80%",
-        end: "bottom bottom",
-        ease: "power2.out",
-        invalidateOnRefresh: true,
+    ScrollTrigger.matchMedia({
+      "(min-width: 769px)": function () {
+        gsap.set(item, {
+          yPercent: 10,
+        });
+        gsap.set(img, {
+          scale: 1,
+        });
+        let projectItemTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            scrub: 2,
+            start: "top 80%",
+            end: "bottom bottom",
+            ease: "power2.out",
+            invalidateOnRefresh: true,
+          },
+        });
+        projectItemTl
+          .to(
+            item,
+            {
+              yPercent: 0,
+              duration: 0.1,
+            },
+            0
+          )
+          .to(
+            img,
+            {
+              scale: 0.95,
+              duration: 0.5,
+              scrub: 1,
+              ease: "power2.out",
+            },
+            0
+          );
+      },
+      "(max-width: 768px)": function () {
+        gsap.set(item, {
+          yPercent: 0,
+        });
+        gsap.set(img, {
+          scale: 1,
+        });
+        let projectItemMoTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            scrub: 2,
+            start: "top 50%",
+            end: "center 50%",
+            ease: "power2.out",
+            invalidateOnRefresh: true,
+          },
+        });
+        projectItemMoTl.to(
+          img,
+          {
+            scale: 0.95,
+            duration: 0.5,
+            scrub: 1,
+            ease: "power2.out",
+          },
+          0
+        );
       },
     });
-    projectItemTl
-      .to(
-        item,
-        {
-          yPercent: 0,
-          duration: 0.5,
-        },
-        0
-      )
-      .to(
-        img,
-        {
-          scale: 0.95,
-          duration: 0.5,
-          scrub: 1,
-          ease: "power2.out",
-        },
-        0
-      );
   });
 }
 
@@ -495,26 +577,48 @@ function subProjectAnimation() {
     .to(".wrap", { duration: 0.2, backgroundColor: "#000e35" });
 
   items.forEach((item, index) => {
-    const imgs = document.querySelector(".project_list .project_item img");
+    const imgs = document.querySelector(
+      ".project_list .project_item .img_box a > img"
+    );
     // 이미지 로드 이벤트 리스너 추가
     imgs.addEventListener("load", () => {
       // 이미지가 로드되면 ScrollTrigger를 새로고침하여 정확한 위치를 계산
       ScrollTrigger.refresh();
     });
 
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: item,
-        scrub: 2,
-        start: "top 80%",
-        end: "bottom bottom",
-        ease: "power2.out",
-        invalidateOnRefresh: true,
+    ScrollTrigger.matchMedia({
+      "(min-width: 769px)": function () {
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            scrub: 2,
+            start: "top 80%",
+            end: "bottom bottom",
+            ease: "power2.out",
+            invalidateOnRefresh: true,
+          },
+        });
+        tl.to(item, {
+          paddingTop: "3rem",
+          paddingBottom: "3rem",
+        });
       },
-    });
-    tl.to(item, {
-      paddingTop: "3rem",
-      paddingBottom: "3rem",
+      "(max-width: 768px)": function () {
+        let tlMo = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            scrub: 2,
+            start: "top 80%",
+            end: "bottom bottom",
+            ease: "power2.out",
+            invalidateOnRefresh: true,
+          },
+        });
+        tlMo.to(item, {
+          paddingTop: "2rem",
+          paddingBottom: "2rem",
+        });
+      },
     });
   });
 }
