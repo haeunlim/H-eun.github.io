@@ -58,8 +58,8 @@ body {
 .scroll_move_btn {
   z-index: 3;
   position: fixed;
-  right: 1.5rem;
-  top: calc(calc(var(--vh, 1vh) * 100) - 1.5rem);
+  right: 3rem;
+  top: calc(calc(var(--vh, 1vh) * 100) - 3rem);
   transform: translateY(-100%);
   z-index: 21536;
 }
@@ -291,6 +291,7 @@ body.scroll .scroll_move_btn svg {
   background: url(../img/play.png) no-repeat left 55% center/ 80%;
   filter: invert(1);
   opacity: 0.6;
+  position: relative;
 }
 .music_control::after {
   content: "";
