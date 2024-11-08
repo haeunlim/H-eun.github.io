@@ -1,14 +1,23 @@
-// 스플리팅 호출
 $(document).ready(function () {
+  // 스플리팅 호출
+  console.log("object");
+  const audio = $("audio").get(0);
+  audio.pause();
+  audio.volume = 0.2;
+
+  $(".music_control").on("click", function () {
+    if ($("body").hasClass("music_off")) {
+      $("body").removeClass("music_off");
+      $("audio").get(0).play();
+    } else {
+      $("body").addClass("music_off");
+      $("audio").get(0).pause();
+    }
+  });
   // splitting
   Splitting();
-
   // gsap
-  window.addEventListener("resize", () => {
-    ScrollTrigger.refresh();
-  });
   gsap.registerPlugin(ScrollTrigger);
-
   // scoller
   const scroller = document.querySelector(".scroller");
 
@@ -60,6 +69,17 @@ $(document).ready(function () {
       }
     });
   });
+
+  document
+    .querySelector(".scroll_move_btn a")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+      gsap.to(bodyScrollBar, {
+        duration: 1,
+        scrollTo: 0,
+        ease: "power2.out",
+      });
+    });
   // header active
   let prevScrollTop = 0;
   bodyScrollBar.addListener(() => {
@@ -73,9 +93,9 @@ $(document).ready(function () {
     prevScrollTop = nowScrollTop;
 
     if (nowScrollTop > 0) {
-      $(".header").addClass("scroll");
+      $("body").addClass("scroll");
     } else {
-      $(".header").removeClass("scroll");
+      $("body").removeClass("scroll");
     }
   });
 
@@ -86,6 +106,82 @@ $(document).ready(function () {
       $("body").addClass("gnbOpen");
     }
   });
+
+  let allImages = $("img");
+  let totalImages = allImages.length;
+  let loadedImages = 0;
+  let isTimeoutReached = false;
+  // 5초 타임아웃 설정
+  let loadTimeout = setTimeout(function () {
+    isTimeoutReached = true;
+    console.log("Timeout reached. Forcing gsap.refresh()");
+
+    loadingComplete();
+  }, 5000); // 타임아웃 시간(밀리초)
+
+  allImages.each(function (index) {
+    let $img = $(this);
+    let imgSrc = $img.attr("src");
+
+    // 로드 이벤트
+    $img
+      .on("load", function () {
+        loadedImages++;
+        console.log(`Image loaded: ${imgSrc} (${loadedImages}/${totalImages})`);
+
+        if (loadedImages === totalImages && !isTimeoutReached) {
+          clearTimeout(loadTimeout);
+          console.log("All images loaded. Running gsap.refresh()");
+          loadingComplete();
+        }
+      })
+      .on("error", function () {
+        loadedImages++;
+        console.warn(
+          `Error loading image: ${imgSrc} (${loadedImages}/${totalImages})`
+        );
+
+        if (loadedImages === totalImages && !isTimeoutReached) {
+          clearTimeout(loadTimeout);
+          console.log("All images loaded or failed. Running gsap.refresh()");
+          loadingComplete();
+        }
+      });
+
+    // 캐시된 이미지도 로드 완료 이벤트 발생시키기 위한 트릭
+    if ($img[0].complete) {
+      $img.trigger("load");
+    }
+  });
+
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+  });
+
+  // together tyed
+  let typetext = new Typed(".typed", {
+    strings: [
+      "mood maker",
+      " troubles hooter",
+      "bug hunter",
+      "human vitamin ",
+      " friendly neighbor",
+    ],
+    typeSpeed: 50,
+    backSpeed: 50,
+    loop: true,
+  });
+
+  //for ios vh
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+  $(".main_tit").addClass("active");
+  if ($(".main_tit").hasClass("active")) {
+    setTimeout(function () {
+      $(".loading .bg").animate({ width: "100%" }, 3000, function () {});
+    }, 2000);
+  }
 
   const viewport = document.querySelector(".viewport");
   // visual animation
@@ -100,10 +196,10 @@ $(document).ready(function () {
         scrub: 2, //gsap scrollTrigger 의 이벤트는 스크롤이 사용될 때만 재생되도록 만들어주는 속성
         duration: 2,
         onEnter: function () {
-          $(".header").addClass("white");
+          $("body").addClass("white");
         },
         onLeaveBack: function () {
-          $(".header").removeClass("white");
+          $("body").removeClass("white");
         },
       },
     })
@@ -124,8 +220,8 @@ $(document).ready(function () {
   // 3D MOTION - DIAMOND
   const diamond3d_canvas = document.getElementById("diamond");
   const diamond3d_context = diamond3d_canvas.getContext("2d");
-  diamond3d_canvas.width = 1000;
-  diamond3d_canvas.height = 1000;
+  diamond3d_canvas.width = 500;
+  diamond3d_canvas.height = 333;
   const diamond3d_frameCount = 90;
 
   const diamond3d_currentFrame = (index) =>
@@ -221,7 +317,7 @@ $(document).ready(function () {
       let aboutTlMo1 = gsap
         .timeline({
           scrollTrigger: {
-            scrub: 3,
+            scrub: 2,
             trigger: aboutSection,
             start: "top 30%",
             ease: "power4.in",
@@ -247,13 +343,13 @@ $(document).ready(function () {
             "50%": { y: 0, ease: "power2.inOut" },
             "70%": { ease: "power2.inOut" },
           },
-          duration: 5,
+          duration: 3,
         })
         .to(
           DOM.fixTxt,
           {
             x: -fixTxtWidth,
-            duration: 3,
+            duration: 2,
           },
           "<"
         )
@@ -380,11 +476,11 @@ $(document).ready(function () {
         start: "top 60%",
         end: "top 40%",
         onEnter: function () {
-          $(".header").removeClass("white");
+          $("body").removeClass("white");
           $(".project_intro_sec").addClass("move");
         },
         onLeaveBack: function () {
-          $(".header").addClass("white");
+          $("body").addClass("white");
           $(".project_intro_sec").removeClass("move");
         },
       },
@@ -394,7 +490,9 @@ $(document).ready(function () {
   const projectItems = gsap.utils.toArray(".project_list .project_item");
   projectItems.forEach((item, index) => {
     const img = item.querySelector(".img_box a> img");
-
+    img.addEventListener("load", function () {
+      ScrollTrigger.refresh();
+    });
     ScrollTrigger.matchMedia({
       "(min-width: 769px)": function () {
         gsap.set(item, {
@@ -564,10 +662,10 @@ $(document).ready(function () {
         ease: "power2.out",
         invalidateOnRefresh: true,
         onEnter: function () {
-          $(".header").addClass("white");
+          $("body").addClass("white");
         },
         onLeaveBack: function () {
-          $(".header").removeClass("white");
+          $("body").removeClass("white");
         },
       },
     })
@@ -577,93 +675,30 @@ $(document).ready(function () {
       color: "#111",
     });
 
-  console.log("object");
-  let Bigimg = $(".img_box img");
-  Bigimg.on("load", function () {
-    ScrollTrigger.refresh();
-    $("#loading").addClass("hide");
-    $(".visual_sec").addClass("motion");
-
-    console.log("object");
-  });
-
-  if (Bigimg.complete) {
-    Bigimg.trigger("load");
-  }
-
-  // let allImages = $("img");
-  // let totalImages = allImages.length;
-  // let loadedImages = 0;
-  // let isTimeoutReached = false;
-  // // 5초 타임아웃 설정
-  // let loadTimeout = setTimeout(function () {
-  //   isTimeoutReached = true;
-  //   console.log("Timeout reached. Forcing gsap.refresh()");
-  //   ScrollTrigger.refresh();
-  //   $("#loading").addClass("hide");
-  //   $(".visual_sec").addClass("motion");
-  // }, 5000); // 타임아웃 시간(밀리초)
-
-  // allImages.each(function (index) {
-  //   let $img = $(this);
-  //   let imgSrc = $img.attr("src");
-
-  //   // 로드 이벤트
-  //   $img
-  //     .on("load", function () {
-  //       loadedImages++;
-  //       console.log(`Image loaded: ${imgSrc} (${loadedImages}/${totalImages})`);
-
-  //       if (loadedImages === totalImages && !isTimeoutReached) {
-  //         clearTimeout(loadTimeout);
-  //         console.log("All images loaded. Running gsap.refresh()");
-  //         ScrollTrigger.refresh();
-  //         $("#loading").addClass("hide");
-  //         $(".visual_sec").addClass("motion");
-  //       }
-  //     })
-  //     .on("error", function () {
-  //       loadedImages++;
-  //       console.warn(
-  //         `Error loading image: ${imgSrc} (${loadedImages}/${totalImages})`
-  //       );
-
-  //       if (loadedImages === totalImages && !isTimeoutReached) {
-  //         clearTimeout(loadTimeout);
-  //         console.log("All images loaded or failed. Running gsap.refresh()");
-  //         ScrollTrigger.refresh();
-  //         $("#loading").addClass("hide");
-  //         $(".visual_sec").addClass("motion");
-  //       }
-  //     });
-
-  //   // 캐시된 이미지도 로드 완료 이벤트 발생시키기 위한 트릭
-  //   if ($img[0].complete) {
-  //     $img.trigger("load");
-  //   }
-  // });
-
-  ScrollTrigger.config({
-    ignoreMobileResize: true,
-  });
-
-  // together tyed
-  let typetext = new Typed(".typed", {
-    strings: [
-      "amazing",
-      "awesome",
-      "different",
-      "special",
-      "fabulous",
-      "stunning",
-      "brilliant",
-      "fantastic",
-      "impressive",
-      "incredible",
-    ],
-    typeSpeed: 50,
-    backSpeed: 50,
-    loop: true,
+  const contactSec = document.querySelector(".contact_sec");
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: contactSec,
+      scrub: 1,
+      start: "top 90%",
+      ease: "power2.out",
+      invalidateOnRefresh: true,
+      onEnter: function () {
+        $(".scroll_move_btn").addClass("chg");
+      },
+      onLeaveBack: function () {
+        $(".scroll_move_btn").removeClass("chg");
+      },
+    },
   });
 });
-window.onload = function () {};
+
+window.addEventListener("resize", () => {
+  ScrollTrigger.refresh();
+});
+function loadingComplete() {
+  $(".loading").hide();
+  $(".visual_sec").addClass("motion");
+  $("audio").get(0).play();
+  ScrollTrigger.refresh();
+}

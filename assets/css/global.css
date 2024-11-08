@@ -1,26 +1,17 @@
-/* ::selection {
-  background: hsla(0, 0%, 100%, 0.8);
-  color: #000;
+*:focus {
+  outline: 1px dashed var(--blue);
 }
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: transparent;
+[role="button"]:active,
+[role="button"]:focus,
+a:focus,
+a:active,
+button:focus,
+button:active {
+  outline: 1px dashed var(--blue) !important            ;
 }
-
-::-webkit-scrollbar {
-  width: 0.6rem;
-  background-color: transparent;
+button:focus:not(:focus-visible) {
+  outline: 0;
 }
-
-::-webkit-scrollbar-thumb {
-  background-color: hsla(0, 0%, 100%, 0.3);
-  border-radius: 1.6rem;
-}
-
-::-webkit-scrollbar-thumb:active {
-  background-color: hsla(0, 0%, 100%, 0.5);
-} */
 
 html {
   font-size: 20px;

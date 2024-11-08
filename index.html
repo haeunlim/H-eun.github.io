@@ -22,13 +22,42 @@
     <title>HAEUN.L</title>
     <link rel="icon" type="image/png" href="assets/img/favicon.ico" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/lib/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/lib/splitting.min.js"></script>
+    <script src="assets/js/lib/typed.min.js"></script>
+    <script src="assets/js/lib/scrolla.jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
     <!-- js -->
   </head>
   <body>
-    <div id="loading">loading...</div>
-
     <div class="wrap">
-      <!-- header -->
+      <!-- audio -->
+      <audio
+        autoplay
+        controls
+        loop
+        volume="2"
+        class="music"
+        style="visibility: hidden"
+      >
+        <source src="assets/music/evertZ.mp3" />
+        Your browser does not support the audio tag.
+      </audio>
+
+      <!-- loading -->
+      <div id="loading" class="loading">
+        <div class="bg"></div>
+        <div class="main_tit">
+          <div class="tit">
+            <strong>WELCOME !</strong>
+          </div>
+          <p class="guide_txt">
+            BGM이 자동 재생됩니다. 오른쪽 상단 음표버튼으로 컨트롤 할 수
+            있습니다.
+          </p>
+        </div>
+      </div>
+
       <header class="header" id="header">
         <div class="inner mw-1800 flex-b-c">
           <h1 class="logo">
@@ -38,16 +67,39 @@
               <span class="point-color"> PORTFOLIO </span>
             </a>
           </h1>
-          <nav class="gnb en">
-            <ul>
-              <li><a href="#aboutTop" data-splitting>About</a></li>
-              <li><a href="#project_intro_sec" data-splitting>Work</a></li>
-              <li><a href="#contact_sec" data-splitting>Contact</a></li>
-            </ul>
-          </nav>
-          <a href="#" class="menu_open"> <span>전체메뉴</span> </a>
+          <div class="header_right flex--c">
+            <nav class="gnb en">
+              <ul>
+                <li><a href="#aboutTop" data-splitting>About</a></li>
+                <li><a href="#project_intro_sec" data-splitting>Work</a></li>
+                <li><a href="#contact_sec" data-splitting>Contact</a></li>
+              </ul>
+            </nav>
+            <a href="#" class="menu_open"> <span>전체메뉴</span> </a>
+            <button
+              class="music_control"
+              type="button"
+              `
+              aria-label="음악 컨트롤"
+            ></button>
+          </div>
         </div>
       </header>
+      <!-- header -->
+
+      <div class="scroll_move_btn">
+        <a href="#wrap" title="위로 올라가기">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g>
+              <g>
+                <polyline points="10.54 21.48 1.1 12.04 10.63 2.52"></polyline>
+                <line x1="1.1" y1="12.05" x2="24" y2="12.05"></line>
+                <rect width="24" height="24"></rect>
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
       <div id="viewport" class="scroller viewport">
         <div id="container" class="container">
           <!-- Visual Sec -->
@@ -59,17 +111,15 @@
                   <source src="assets/img/video/work.mp4" type="video/mp4" />
                 </video>
               </div>
-              <div class="main_txt wave_txt_box en">
-                <p class="top_txt">
-                  <span class="en2">Welcome!</span>
-                </p>
-                <p>
-                  <span>Web Publisher</span>
-                </p>
-                <p class="en2"><span>Lim Haeun</span></p>
-                <p><span>Portfolio</span></p>
+              <div class="main_tit">
+                <div class="tit">
+                  <strong>WELCOME !</strong>
+                  <div class="show_txt">
+                    HAEUN.L<br />
+                    PORTFOLIO
+                  </div>
+                </div>
               </div>
-              <div class="scroll">Scroll Down</div>
             </div>
           </section>
           <div id="aboutTop"></div>
@@ -175,9 +225,9 @@
                 <h2 class="tit">
                   <div class="tit_change_box">
                     <p class="change_ani_box">
-                      <span>Flexible</span
-                      ><span aria-hidden="true">Empathizing</span
-                      ><span aria-hidden="true">Communicating </span>
+                      <span>Growing</span
+                      ><span aria-hidden="true">Communicating</span
+                      ><span aria-hidden="true">Flexible </span>
                     </p>
                   </div>
                   <p>UI Developer</p>
@@ -215,7 +265,9 @@
                           Main, 사업영역, 직무소개, 직무인터뷰, Careers,
                           Benefit, 채용프로세스 총 7페이지 퍼블리싱 100%
                         </p>
-                        <span> View Site </span>
+                        <button type="button" class="view_btn">
+                          <span><img src="assets/img/arrow.png" alt="" /></span>
+                        </button>
                       </div>
                       <img
                         alt=""
@@ -289,7 +341,11 @@
                       </span>
                       <div class="more_view">
                         <p class="project_work flex--e">퍼블리싱 100%</p>
-                        <span> View Site </span>
+                        <button type="button" class="view_btn">
+                          View<span
+                            ><img src="assets/img/arrow.png" alt=""
+                          /></span>
+                        </button>
                       </div>
 
                       <img
@@ -350,7 +406,11 @@
                     >
                       <div class="more_view">
                         <p class="project_work">퍼블리싱 100%</p>
-                        <span> View Site </span>
+                        <button type="button" class="view_btn">
+                          View<span
+                            ><img src="assets/img/arrow.png" alt=""
+                          /></span>
+                        </button>
                       </div>
                       <img
                         alt=""
@@ -402,7 +462,11 @@
                     >
                       <div class="more_view">
                         <p class="project_work">퍼블리싱 100%</p>
-                        <span> View Site </span>
+                        <button type="button" class="view_btn">
+                          View<span
+                            ><img src="assets/img/arrow.png" alt=""
+                          /></span>
+                        </button>
                       </div>
                       <img
                         alt=""
@@ -460,7 +524,11 @@
                     >
                       <div class="more_view">
                         <p class="project_work">퍼블리싱 100%</p>
-                        <span> View Site </span>
+                        <button type="button" class="view_btn">
+                          View<span
+                            ><img src="assets/img/arrow.png" alt=""
+                          /></span>
+                        </button>
                       </div>
                       <img
                         alt=""
@@ -712,9 +780,10 @@
           <section class="together_sec">
             <div class="sec_tit_box">
               <h2 class="tit">
-                LET'S DO <br />SOMETHING
+                I CAN BE A
                 <span class="typed word en2"></span>
-                <p>TOGETHER</p>
+                <p>ON OUR PLANET</p>
+                <p>LET'S DO IT!</p>
               </h2>
             </div>
           </section>
@@ -727,7 +796,6 @@
                 </div>
               </div>
               <div class="txt_box">
-                <h3 class="other_tit">Want to Work Together?</h3>
                 <div class="contact_list en flex--c">
                   <p>
                     <a href="tel:01035602336"
@@ -759,15 +827,10 @@
         </footer>
       </div>
     </div>
-    <script src="assets/js/lib/jquery-3.3.1.min.js"></script>
+
     <script src="assets/js/lib/gsap.min.js"></script>
     <script src="assets/js/lib/ScrollTrigger.min.js"></script>
     <script src="assets/js/lib/smooth-scrollbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js"></script>
-    <script src="assets/js/lib/splitting.min.js"></script>
-    <script src="assets/js/lib/scrolla.jquery.min.js"></script>
-    <script src="assets/js/lib/typed.min.js"></script>
-
-    <script src="assets/js/script.js"></script>
   </body>
 </html>
