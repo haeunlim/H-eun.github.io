@@ -283,8 +283,8 @@ body.scroll .scroll_move_btn svg {
 
 .music_control {
   margin-left: min(5vw, 60px);
-  width: min(12vw, 60px);
-  height: min(12vw, 60px);
+  width: min(12vw, 50px);
+  height: min(12vw, 50px);
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.5s;
@@ -293,7 +293,7 @@ body.scroll .scroll_move_btn svg {
   opacity: 0.6;
   position: relative;
 }
-.music_control::after {
+/* .music_control::after {
   content: "";
   left: 50%;
   top: 50%;
@@ -305,8 +305,8 @@ body.scroll .scroll_move_btn svg {
   position: absolute;
   opacity: 0.6;
   transition: all 0.5s;
-}
-.music_control:hover::after,
+} */
+/* .music_control:hover::after, */
 .music_control:hover {
   opacity: 1;
 }

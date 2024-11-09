@@ -1,9 +1,17 @@
 $(document).ready(function () {
   // 스플리팅 호출
-  console.log("object");
+
   const audio = $("audio").get(0);
   audio.pause();
   audio.volume = 0.2;
+
+  document.querySelector("#viewport").addEventListener("mouseover", () => {
+    if ($("body").hasClass("music_off")) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+  });
 
   $(".music_control").on("click", function () {
     if ($("body").hasClass("music_off")) {
@@ -699,6 +707,5 @@ window.addEventListener("resize", () => {
 function loadingComplete() {
   $(".loading").hide();
   $(".visual_sec").addClass("motion");
-  $("audio").get(0).play();
   ScrollTrigger.refresh();
 }
