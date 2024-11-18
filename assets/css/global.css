@@ -1,5 +1,5 @@
 *:focus {
-  outline: 1px dashed var(--blue);
+  outline: 1px dashed var(--blue) !important;
 }
 [role="button"]:active,
 [role="button"]:focus,

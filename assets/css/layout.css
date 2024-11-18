@@ -180,7 +180,7 @@ body.scroll .scroll_move_btn svg {
 #header .logo a {
   display: flex;
   align-items: center;
-  font-size: min(6vw, 24px);
+  font-size: min(5vw, 24px);
 }
 #header .logo a span {
   font-weight: 800;

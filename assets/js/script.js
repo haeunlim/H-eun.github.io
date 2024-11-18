@@ -1,17 +1,20 @@
 $(document).ready(function () {
   // 스플리팅 호출
 
-  const audio = $("audio").get(0);
-  audio.pause();
-  audio.volume = 0.2;
+  // document.addEventListener("keydown", function (event) {
+  //   musicStart();
+  // });
+  // document.querySelector("#viewport").addEventListener("mouseover", () => {
+  //   musicStart();
+  // });
 
-  document.querySelector("#viewport").addEventListener("mouseover", () => {
-    if ($("body").hasClass("music_off")) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
-  });
+  // document.body.addEventListener(
+  //   "touchstart",
+  //   function () {
+  //     musicStart();
+  //   },
+  //   false
+  // );
 
   $(".music_control").on("click", function () {
     if ($("body").hasClass("music_off")) {
@@ -24,8 +27,6 @@ $(document).ready(function () {
   });
   // splitting
   Splitting();
-  // gsap
-  gsap.registerPlugin(ScrollTrigger);
   // scoller
   const scroller = document.querySelector(".scroller");
 
@@ -77,7 +78,7 @@ $(document).ready(function () {
       }
     });
   });
-
+  // scroll move btn
   document
     .querySelector(".scroll_move_btn a")
     .addEventListener("click", (event) => {
@@ -115,6 +116,7 @@ $(document).ready(function () {
     }
   });
 
+  //img loading
   let allImages = $("img");
   let totalImages = allImages.length;
   let loadedImages = 0;
@@ -122,7 +124,6 @@ $(document).ready(function () {
   // 5초 타임아웃 설정
   let loadTimeout = setTimeout(function () {
     isTimeoutReached = true;
-    console.log("Timeout reached. Forcing gsap.refresh()");
 
     loadingComplete();
   }, 5000); // 타임아웃 시간(밀리초)
@@ -135,11 +136,9 @@ $(document).ready(function () {
     $img
       .on("load", function () {
         loadedImages++;
-        console.log(`Image loaded: ${imgSrc} (${loadedImages}/${totalImages})`);
 
         if (loadedImages === totalImages && !isTimeoutReached) {
           clearTimeout(loadTimeout);
-          console.log("All images loaded. Running gsap.refresh()");
           loadingComplete();
         }
       })
@@ -151,7 +150,6 @@ $(document).ready(function () {
 
         if (loadedImages === totalImages && !isTimeoutReached) {
           clearTimeout(loadTimeout);
-          console.log("All images loaded or failed. Running gsap.refresh()");
           loadingComplete();
         }
       });
@@ -161,6 +159,20 @@ $(document).ready(function () {
       $img.trigger("load");
     }
   });
+  // const audio = $("audio").get(0);
+  // audio.pause();
+  // audio.volume = 0.2;
+
+  function musicStart() {
+    if ($("body").hasClass("music_off")) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+  }
+
+  // gsap
+  gsap.registerPlugin(ScrollTrigger);
 
   ScrollTrigger.config({
     ignoreMobileResize: true,
@@ -211,7 +223,6 @@ $(document).ready(function () {
         },
       },
     })
-    .to(".scroll", { opacity: "0", ease: "none" }, 0)
     .fromTo(
       visualSection,
       { "clip-path": "inset(0% 0% 0% 0% round 0%)" },
