@@ -316,8 +316,8 @@ $(document).ready(function () {
           keyframes: {
             "0%": { scale: 2, opacity: 0, ease: "power2.out" },
             "30%": { scale: 1, opacity: 1, ease: "power2.out" },
-            "50%": { x: 0, y: 0, ease: "power2.inOut" }, // 부드러운 이징
-            "70%": { y: 0, x: "60%", ease: "power2.inOut" },
+            "50%": { x: 0, ease: "power2.inOut" }, // 부드러운 이징
+            "70%": { x: "60%", ease: "power2.inOut" },
           },
           duration: 5,
         })
